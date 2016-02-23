@@ -24,6 +24,27 @@
 }
 
 
+#define HRegInfo(key, userInfo) @{@"key":key, @"userInfo":userInfo}
+
+#define HReg3(key1, ...)\
++ (void)load\
+{\
+    [super load];\
+    NSArray *items = @[key1, __VA_ARGS__];\
+    for (id item in items)\
+    {\
+        if ([item isKindOfClass:[NSDictionary class]])\
+        {\
+            NSDictionary *regInfo = item;\
+            [HClassManager registerClass:self forkey:regInfo[@"key"] userInfo:regInfo[@"userInfo"]];\
+        }\
+        else\
+        {\
+            [HClassManager registerClass:self forkey:item];\
+        }\
+    }\
+}
+
 typedef BOOL (^HClassScanBlock)(Class aclass);
 typedef void (^HClassFetchBlock)(Class aclass, id userInfo);
 typedef void (^HClassNameFetchBlock)(NSString *aclassName, id userInfo);

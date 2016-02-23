@@ -36,11 +36,8 @@
 @end
 
 @implementation B
-+ (void)load
-{
-    [HClassManager registerClass:self forkey:AClassRegKey];
-    [HClassManager registerClass:self forkey:TestProRegKey userInfo:@"some attr"];
-}
+HReg3(AClassRegKey,
+      HRegInfo(TestProRegKey, @"some attr"))
 @end
 
 @implementation C
