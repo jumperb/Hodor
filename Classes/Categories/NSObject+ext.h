@@ -17,8 +17,14 @@ Stuff; \
 _Pragma("clang diagnostic pop") \
 } while (0)
 
-// extend dispatch invoke
-// batch invoke methods of some pattern
+/** 
+* extend dispatch invoke
+* batch invoke methods of some pattern, these methods always in some categorys in some module
+* @param invokeString stringfromSelector，like -[className funcName]，we use '__func__'
+* @param preTag       preTag.  default is '_'
+*                     eg: faction '-init', and the preTag is 'abc',  then the function like - ***abcinit will invoked。
+* @param arguments
+*/
 #define H_ExtendInvoke1(preTag, args...) \
 { \
 NSString * methodName = [NSString stringWithFormat:@"%s", __func__]; \
@@ -66,7 +72,7 @@ if (![arg isKindOfClass:[_class class]])\
  *  note：the invoke sequence is ambiguous
  *
  *  @param invokeString stringfromSelector，like -[className funcName]，we use '__func__'
- *  @param preTag       preTag。default is '_'
+ *  @param preTag       preTag. default is '_'
  *                      eg: faction '-init', and the preTag is 'abc',  then the function like - ***abcinit will invoked。
  *  @param arguments
  */

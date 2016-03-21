@@ -7,6 +7,7 @@
 //
 
 #import "UIImageDemoVC.h"
+#import "HCommon.h"
 
 @implementation UIImageDemoVC
 

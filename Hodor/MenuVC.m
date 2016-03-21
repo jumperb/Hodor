@@ -13,6 +13,7 @@
 #import "NSObjectDemoVC.h"
 #import "NSObjectAnnotationTestVC.h"
 #import "ClassRegisterTestVC.h"
+#import "HCommon.h"
 
 @implementation MenuVC
 

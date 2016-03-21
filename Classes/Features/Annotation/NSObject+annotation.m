@@ -8,6 +8,7 @@
 
 #import "NSObject+annotation.h"
 #import <objc/runtime.h>
+#import "NSObject+ext.h"
 
 @implementation NSObject (annotation)
 + (NSArray *)annotations:(NSString *)key

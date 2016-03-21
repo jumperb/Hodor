@@ -7,6 +7,7 @@
 //
 
 #import "TestObj.h"
+#import "HCommon.h"
 
 @implementation AClass
 - (void)dealloc

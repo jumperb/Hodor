@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HCommon.h"
 
 @interface AClass: NSObject
 @property (nonatomic, strong) callback ablock;

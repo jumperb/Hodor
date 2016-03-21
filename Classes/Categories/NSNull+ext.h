@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 // is null 
 #define isNull(object) (object == nil || (id)object == [NSNull null])

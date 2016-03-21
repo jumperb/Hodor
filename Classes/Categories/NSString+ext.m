@@ -7,7 +7,8 @@
 //
 
 #import "NSString+ext.h"
-#import<CommonCrypto/CommonDigest.h>
+#import <CommonCrypto/CommonDigest.h>
+#import "HDefines.h"
 
 @implementation NSString (ext)
 
