@@ -23,7 +23,6 @@
 [HClassManager registerClass:self forkey:key userInfo:userinfo];\
 }
 
-
 #define HRegInfo(key, userInfo) @{@"key":key, @"userInfo":userInfo}
 
 #define HReg3(key1, ...)\
@@ -45,10 +44,16 @@
     }\
 }
 
+#define HRegForProtocal(pro)\
++ (void)load\
+{\
+[super load];\
+[HClassManager registerClass:self forProtocal:pro];\
+}
+
 typedef BOOL (^HClassScanBlock)(Class aclass);
 typedef void (^HClassFetchBlock)(Class aclass, id userInfo);
 typedef void (^HClassNameFetchBlock)(NSString *aclassName, id userInfo);
-
 
 /**
  *  class register manager
@@ -61,10 +66,12 @@ typedef void (^HClassNameFetchBlock)(NSString *aclassName, id userInfo);
 @interface HClassManager : NSObject
 + (void)registerClass:(Class)aclass forkey:(NSString *)key;
 + (void)registerClass:(Class)aclass forkey:(NSString *)key userInfo:(id)userInfo;
++ (void)registerClass:(Class)aclass forProtocal:(Protocol *)protocal;
 + (void)scanClassForKey:(NSString *)key fetchblock:(HClassFetchBlock)block;
 + (void)scanClassNameForKey:(NSString *)key fetchblock:(HClassNameFetchBlock)block;
 //return the first one that found
 + (NSString *)getClassNameForKey:(NSString *)key;
++ (id)getObjectOfProtocal:(Protocol *)protocal;
 //delete the key and class info
 + (void)removeClassForKey:(NSString *)key;
 @end

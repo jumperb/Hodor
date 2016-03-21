@@ -44,6 +44,11 @@
 {
     [[self sharedKit] registerClass:aclass forkey:key userInfo:userInfo];
 }
++ (void)registerClass:(Class)aclass forProtocal:(Protocol *)protocal
+{
+    NSString *key = [NSString stringWithFormat:@"%@RegKey", NSStringFromProtocol(protocal)];
+    [[self sharedKit] registerClass:aclass forkey:key];
+}
 + (void)scanClassNameForKey:(NSString *)key fetchblock:(HClassNameFetchBlock)block
 {
     NSSet *targetClasses = [[self sharedKit] getClassesForKey:key];
@@ -89,6 +94,17 @@
         }
     }];
     return className;
+}
++ (id)getObjectOfProtocal:(Protocol *)protocal
+{
+    NSString *key = [NSString stringWithFormat:@"%@RegKey", NSStringFromProtocol(protocal)];
+    NSString *className = [self getClassNameForKey:key];
+    if (!className) return nil;
+    Class class = NSClassFromString(className);
+    if (!class) return nil;
+    id obj = [class new];
+    if (![obj conformsToProtocol:protocal]) return nil;
+    return obj;
 }
 + (void)removeClassForKey:(NSString *)key
 {
