@@ -32,4 +32,7 @@
 
 //atomistic copy
 - (BOOL)copyItemAtURL:(NSURL *)srcURL toURL:(NSURL *)dstURL atomically:(BOOL)atomically error:(NSError **)error;
+
+//don't backup this file
+- (BOOL)skipBackupAttributeToItemAtFilePath:(NSString *)filePath;
 @end

@@ -21,14 +21,15 @@ const int kAsyncCanelErrorCode = -1029;
 
 + (instancetype)errorWithDomain:(NSString *)domain code:(NSInteger)code
 {
-    if (domain == nil) domain = @"";
+    domain = domain ?: @"";
     return [NSError errorWithDomain:domain code:code userInfo:nil];
 }
 
 
 + (instancetype)errorWithDomain:(NSString *)domain code:(NSInteger)code description:(NSString *)description
 {
-    if (domain == nil) domain = @"";
+    domain = domain ?: @"";
+    description = description ?: @"";
     return [NSError errorWithDomain:domain code:code userInfo:@{NSLocalizedDescriptionKey : description}];
 }
 
@@ -38,12 +39,10 @@ const int kAsyncCanelErrorCode = -1029;
                     description:(NSString *)description
                          reason:(NSString *)reason
 {
-    NSDictionary *const dict = @{NSLocalizedDescriptionKey : description, NSLocalizedFailureReasonErrorKey : reason};
-    if (domain == nil)
-    {
-       NSAssert(NO, @"domain is nil");
-       domain = @"(null)";
-    }
+    domain = domain ?: @"";
+    description = description ?: @"";
+    reason = reason ?: @"";
+    NSDictionary *dict = @{NSLocalizedDescriptionKey : description, NSLocalizedFailureReasonErrorKey : reason};
     return [NSError errorWithDomain:domain
                                code:code
                            userInfo:dict];

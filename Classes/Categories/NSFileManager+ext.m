@@ -157,4 +157,42 @@
     return [self moveItemAtURL:dstURLTemp toURL:dstURL error:error];
 }
 
+- (BOOL)skipBackupAttributeToItemAtFilePath:(NSString *)filePath
+{
+    if (filePath == nil ||  filePath.length == 0)
+    {
+        NSAssert(NO, nil);
+        return NO;
+    }
+    NSURL *URL;
+    if ([filePath hasPrefix:@"file://"])
+    {
+        URL = [NSURL URLWithString:filePath];
+    }
+    else
+    {
+        URL = [NSURL fileURLWithPath:filePath];
+    }
+    const BOOL isExist = [[NSFileManager defaultManager] fileExistsAtPath:[URL path]];
+    if (isExist)
+    {
+        NSError *error = nil;
+        BOOL success = [URL setResourceValue: @YES
+                                      forKey: NSURLIsExcludedFromBackupKey error: &error];
+        if (error)
+        {
+            NSLog(@"error_happened %@", error);
+        }
+
+        return success;
+    }
+    else
+    {
+        NSAssert(isExist, nil);
+        NSLog(@"没有找到文件:%@", filePath);
+        return NO;
+    }
+}
+
+
 @end
