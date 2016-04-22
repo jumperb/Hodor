@@ -139,7 +139,6 @@ while (theClass != [NSObject class]) {
         NSArray *ants = [theClass annotations:ppName];
         if (ants) NSLog(@"property:%@ annotations:%@", ppName, ants);
     }
-    theClass = class_getSuperclass(theClass);
 
     NSArray *instanceMethods = [NSObject hInstanceMethodNames:theClass];
     NSArray *classMethods = [NSObject hClassMethodNames:theClass];
