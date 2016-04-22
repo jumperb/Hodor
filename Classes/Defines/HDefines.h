@@ -16,11 +16,6 @@
 #define IS_568h  ([UIScreen mainScreen].bounds.size.height > 567)
 
 
-// If project include PGL-Core, then use PGL-Core to handle NSAssert for online Assertion Logging
-#if __has_include("PGL-Core.h")
-#import "PGL-Core.h"
-#else
-
 //redefine 'NSLog'
 #ifndef NSLog
 #if defined(DEBUG)
