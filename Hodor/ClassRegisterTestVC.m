@@ -36,8 +36,7 @@
 @end
 
 @implementation B
-HReg3(AClassRegKey,
-      HRegInfo(TestProRegKey, @"some attr"))
+HReg3(AClassRegKey, HRegInfo(TestProRegKey, @"some attr"))
 @end
 
 @implementation C

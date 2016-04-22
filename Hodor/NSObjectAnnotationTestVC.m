@@ -23,7 +23,7 @@
         
         [self addMenu:@"Get Property Annotation" callback:^(id sender, id data) {
             
-            Class theClass = [AnnotationTestObj2 class];
+            Class theClass = [AnnotationTestObj class];
             while (theClass != [NSObject class]) {
                 NSArray *ppList = [NSObject ppListOfClass:theClass];
                 for (NSString *ppName in ppList)
@@ -32,13 +32,23 @@
                     if (ants) NSLog(@"property:%@ annotations:%@", ppName, ants);
                 }
                 theClass = class_getSuperclass(theClass);
+
+                NSArray *instanceMethods = [NSObject hInstanceMethodNames:theClass];
+                NSArray *classMethods = [NSObject hClassMethodNames:theClass];
+                NSArray *methods = [instanceMethods arrayByAddingObjectsFromArray:classMethods];
+                for (NSString *name in methods)
+                {
+                    NSArray *ants = [theClass annotations:hFormateAnnotationName(name)];
+                    if (ants) NSLog(@"function:%@ annotations:%@", name, ants);
+                }
+                theClass = class_getSuperclass(theClass);
             }
             
         }];
         
         [self addMenu:@"Get function Annotation" callback:^(id sender, id data) {
             
-            Class theClass = [AnnotationTestObj2 class];
+            Class theClass = [AnnotationTestObj class];
             while (theClass != [NSObject class]) {
                 NSArray *instanceMethods = [NSObject hInstanceMethodNames:theClass];
                 NSArray *classMethods = [NSObject hClassMethodNames:theClass];
