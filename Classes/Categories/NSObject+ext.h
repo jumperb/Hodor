@@ -64,6 +64,7 @@ if (![arg isKindOfClass:[_class class]])\
 - (NSString *)jsonString;
 
 // swap two SEL and IMP
+//if origSel isn't defined, you need call respondToSelector to check if selector is exsit
 + (void)methodSwizzleWithClass:(Class)c origSEL:(SEL)origSEL overrideSEL:(SEL)overrideSEL;
 
 /**
