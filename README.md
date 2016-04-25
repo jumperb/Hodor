@@ -196,7 +196,7 @@ then in another module write a category like this
 
 ##Other categories
 
-Just look a the code. there are some very intersting categories
+Just look at the code. there are some very intersting categories
 * `-[NSObject jsonString]` : everything (include your custom object) could be json encode  
 * `methodSwizzle`  
 * `-[UIApplication getKeyWindowRootController]`  
