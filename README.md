@@ -151,3 +151,58 @@ while (theClass != [NSObject class]) {
     theClass = class_getSuperclass(theClass);
 }
 ```
+
+##How to use extend invoke feature
+Is your appDelegate very very large? and you want to put these code to a coherenct place. if you has a object , you can use notification to meet the requirement. but if you don't has a object, how ?
+
+you can try use this solution: "extend invoke". it can dispatch invoke to your coherenct place.
+
+first you need add a extend invoke
+
+```objective-c
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //EDI
+    H_ExtendInvoke3(&application,&launchOptions);
+    
+    return YES;
+}
+
+```
+
+
+then in another module write a category like this
+```objective-c
+
+@implementation AppDelegate (moduleA)
+
+- (BOOL)moduleA_application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    NSLog(@"## moduleA extend 'didFinishLaunchingWithOptions'");
+    return YES;
+}
+@end
+
+
+@implementation AppDelegate (moduleB)
+
+- (BOOL)moduleB_application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    NSLog(@"## moduleB extent 'didFinishLaunchingWithOptions'");
+    return YES;
+}
+@end
+
+```
+
+##Other categories
+
+Just look a the code. there are some very intersting categories
+* `-[NSObject jsonString]` : everything (include your custom object) could be json encode  
+* `methodSwizzle`  
+* `-[UIApplication getKeyWindowRootController]`  
+* `-[UIButton hSetColor:font:title:]`  
+* `-[UIColor colorWithHex:]`,`-[UIColor random]`  
+* `-[UILabel hSetColor:font:text:]`   
+* `UIView.x UIView.y UIView.width, UIView.height, UIView.xmax UIView.ymax`, all the property could read and write  
+* `UIView.userInfo` you can save some context info
+* `-[UIView removeAllSubViews]`
