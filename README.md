@@ -1,6 +1,6 @@
 #Hodor
 
-This library provides some unversal features a group of categories for UIKit and Foundation. all the categories and features are very usefull and universal, but every one is too small , so we put them together.
+This library provides some unversal features and a group of categories for UIKit and Foundation. all the categories and features are very usefull and universal, but every one is too small , so we put them together.
 it provides:  
 * Annotation support for objc, like [java annotation](https://en.wikipedia.org/wiki/Java_annotation)  
 * Class Manager for COC(convention over configuration) design or construct some unconfig solution  
@@ -18,25 +18,20 @@ first you need register a class to a key
 #define TestProRegKey @"TestProRegKey"
 
 @protocol TestPro <NSObject>
-
 @end
 
 
 #define AClassRegKey @"AClassRegKey"
 @interface A : NSObject
-
 @end
 
 @interface B : A
-
 @end
 
 @interface C : A
-
 @end
 
 @interface D : A
-
 @end
 
 
@@ -73,9 +68,9 @@ define HRegForProtocal(pro)
 
 
 ##How to use annotation category
-if you want to set some special property to your property of some class.like  
+if you want to set some special attributes to your property of some class. like  
 @property (nonatomic, `customkey`) NSString *str;  
-and you can do some thing according to this customkey.
+and you want to do something according to this customkey.
 there is not a very beautiful solution , but relatively simple.
 
 this is a header file
@@ -104,27 +99,15 @@ ppx(c, @"g")
 ppx(p,@(2))
 
 ppx(func1, @[@"h",@"i"])
-- (void)func1
-{
-    
-}
+- (void)func1 {}
 
 ppx(func2_withb_, @{@"j":@"k"})
-- (void)func2:(int)a withb:(NSString *)b;
-{
-    
-}
+- (void)func2:(int)a withb:(NSString *)b {}
 
 ppx(func3, @(5))
-+ (void)func3
-{
-    
-}
++ (void)func3 {}
 
-- (void)func4
-{
-    
-}
+- (void)func4 {}
 @end
 ```
 
@@ -153,7 +136,7 @@ while (theClass != [NSObject class]) {
 ```
 
 ##How to use extend invoke feature
-Is your appDelegate very very large? and you want to put these code to a coherenct place. if you has a object , you can use notification to meet the requirement. but if you don't has a object, how ?
+Is your appDelegate very very large? and you want to put these code to a coherenct place. if you have an object , you can use notification to meet the requirement. but if you don't has a object, how ?
 
 you can try use this solution: "extend invoke". it can dispatch invoke to your coherenct place.
 
@@ -161,9 +144,8 @@ first you need add a extend invoke
 
 ```objective-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //EDI
+    //EI
     H_ExtendInvoke3(&application,&launchOptions);
-    
     return YES;
 }
 
@@ -193,6 +175,7 @@ then in another module write a category like this
 @end
 
 ```
+you can use it at all decentralize solutions.
 
 ##Other categories
 
@@ -206,3 +189,17 @@ Just look at the code. there are some very intersting categories
 * `UIView.x UIView.y UIView.width, UIView.height, UIView.xmax UIView.ymax`, all the property could read and write  
 * `UIView.userInfo` you can save some context info
 * `-[UIView removeAllSubViews]`
+
+##Other function and defines
+* `syncAtQueue(dispatch_queue_t, ^)` a safe sync dispatch method. 
+* `universal block define`
+```objective-c
+typedef void (^min_callback)();
+typedef void (^callback)(id sender, id data);
+typedef void (^callback2)(id sender, id data, id data2);
+typedef void (^simple_callback)(id sender);
+typedef void (^fail_callback)(id sender, NSError *error);
+typedef id (^returnback)(id sender, id data);
+typedef void (^finish_callback)(id sender, id data, NSError *error);
+```
+* @weakify, @strongify
