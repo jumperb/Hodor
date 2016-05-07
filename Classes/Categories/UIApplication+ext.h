@@ -11,8 +11,23 @@
 @interface UIApplication (ext)
 
 //get Window 0
++ (UIWindow *)getKeyWindow;
+
+//get Window 0
 - (UIWindow *)getKeyWindow;
 
 //get root VC of window 0
++ (UIViewController *)getKeyWindowRootController;
+
+//get root VC of window 0
 - (UIViewController *)getKeyWindowRootController;
+
+//get root navigation controller
++ (UINavigationController *)navi;
+
+//get root navigation controller top
++ (UIViewController *)naviTop;
+
+//get root tabbar vc
++ (UITabBarController *)tabbarVC;
 @end
