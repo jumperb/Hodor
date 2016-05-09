@@ -10,13 +10,36 @@
 #define HFloatEqualityDefines_h
 
 
+#ifndef F_EQUAL
 #define F_EQUAL(a,b) ((fabs((a) - (b))) < FLT_EPSILON)
+#endif
+
+#ifndef F_NOT_EQUAL
 #define F_NOT_EQUAL(a,b) ((fabs((a) - (b))) > FLT_EPSILON)
+#endif
+
+#ifndef F_EQUAL_ZERO
 #define F_EQUAL_ZERO(a) (fabs(a) < FLT_EPSILON)
+#endif
+
+#ifndef F_NOT_EQUAL_ZERO
 #define F_NOT_EQUAL_ZERO(a) (fabs(a) > FLT_EPSILON)
-#define F_LESS_THAN(a,b) (fabs(a) < (fabs(b)+FLT_EPSILON))
+#endif
+
+#ifndef F_LESS_THAN
+#define F_LESS_THAN(a,b) ((fabs(a) < (fabs(b)+FLT_EPSILON)) && ((fabs((a) - (b))) > FLT_EPSILON))
+#endif
+
+#ifndef F_LESS_OR_EQUAL_THAN
 #define F_LESS_OR_EQUAL_THAN(a,b) ((fabs(a) < (fabs(b)+FLT_EPSILON)) || (fabs((a) - (b)) < FLT_EPSILON))
-#define F_GREATER_THAN(a,b) (fabs(a) > (fabs(b)+FLT_EPSILON))
+#endif
+
+#ifndef F_GREATER_THAN
+#define F_GREATER_THAN(a,b) ((fabs(a) > (fabs(b)+FLT_EPSILON)) && ((fabs((a) - (b))) > FLT_EPSILON))
+#endif
+
+#ifndef F_GREATER_OR_EQUAL_THAN
 #define F_GREATER_OR_EQUAL_THAN(a,b) ((fabs(a) > fabs(b)+FLT_EPSILON) || ((fabs((a) - (b)) < FLT_EPSILON)))
+#endif
 
 #endif /* HFloatEqualityDefines_h */
