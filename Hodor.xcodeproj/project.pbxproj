@@ -41,6 +41,7 @@
 		00FF4FFC1C74C52A00D42303 /* NSObjectAnnotationTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FF4FFB1C74C52A00D42303 /* NSObjectAnnotationTestVC.m */; };
 		5B890A811A5A629B0013D654 /* UILabelDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B890A801A5A629B0013D654 /* UILabelDemoVC.m */; };
 		64827F3B1C3A43E100BE3229 /* NSObjectDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64827F3A1C3A43E100BE3229 /* NSObjectDemoVC.m */; };
+		9728AA751CE58341005A034C /* UINavigationController+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 9728AA741CE58341005A034C /* UINavigationController+ext.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +117,8 @@
 		5B890A801A5A629B0013D654 /* UILabelDemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelDemoVC.m; sourceTree = "<group>"; };
 		64827F391C3A43E100BE3229 /* NSObjectDemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObjectDemoVC.h; sourceTree = "<group>"; };
 		64827F3A1C3A43E100BE3229 /* NSObjectDemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObjectDemoVC.m; sourceTree = "<group>"; };
+		9728AA731CE58341005A034C /* UINavigationController+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+ext.h"; sourceTree = "<group>"; };
+		9728AA741CE58341005A034C /* UINavigationController+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+ext.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +241,8 @@
 				008764B51C716F7F004AB947 /* UILabel+ext.m */,
 				008764B61C716F7F004AB947 /* UIView+ext.h */,
 				008764B71C716F7F004AB947 /* UIView+ext.m */,
+				9728AA731CE58341005A034C /* UINavigationController+ext.h */,
+				9728AA741CE58341005A034C /* UINavigationController+ext.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -396,6 +401,7 @@
 				008764CA1C716F7F004AB947 /* NSNumber+ext.m in Sources */,
 				008764D11C716F7F004AB947 /* UILabel+ext.m in Sources */,
 				008764C81C716F7F004AB947 /* NSFileManager+ext.m in Sources */,
+				9728AA751CE58341005A034C /* UINavigationController+ext.m in Sources */,
 				008764CC1C716F7F004AB947 /* NSString+ext.m in Sources */,
 				5B890A811A5A629B0013D654 /* UILabelDemoVC.m in Sources */,
 				008764DC1C716FB5004AB947 /* HGCDext.m in Sources */,
