@@ -8,7 +8,6 @@
 
 #import "UIApplication+ext.h"
 #import "HClassManager.h"
-#import "HOpenURLDelegate.h"
 
 @implementation UIApplication (ext)
 
@@ -64,15 +63,16 @@
     else return nil;
 }
 
+//open url in application
 - (BOOL)openURLInApp:(NSURL *)url
 {
-    //在后台不执行
+    //do nothing when application is in UIApplicationStateBackground state
     if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground)
     {
         return NO;
     }
     
-    //只有http(s)协议的url才被定向到内部webview
+    //only the url confirmed to http(s) protocal can goto a inner webview
     if ([url scheme] && ([[url scheme] compare:@"http" options:NSCaseInsensitiveSearch] == NSOrderedSame ||
                          [[url scheme] compare:@"https" options:NSCaseInsensitiveSearch] == NSOrderedSame))
     {
@@ -101,9 +101,9 @@
                     }
                 }
                 navi = enumvc.navigationController;
-                [HClassManager scanClassForKey:HOpenURLDelegateRegKey fetchblock:^(__unsafe_unretained Class aclass, id userInfo) {
+                [HClassManager scanClassForKey:HApplicationDelegateRegKey fetchblock:^(__unsafe_unretained Class aclass, id userInfo) {
                     id obj = [[aclass alloc] init];
-                    if ([obj conformsToProtocol:@protocol(HOpenURLDelegate)])
+                    if ([obj conformsToProtocol:@protocol(HApplicationDelegate)])
                     {
                         if ([obj respondsToSelector:@selector(webVCWithUrl:)])
                         {

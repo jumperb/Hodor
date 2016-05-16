@@ -115,7 +115,6 @@
 		00FF4FFB1C74C52A00D42303 /* NSObjectAnnotationTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObjectAnnotationTestVC.m; sourceTree = "<group>"; };
 		5B890A7F1A5A629B0013D654 /* UILabelDemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelDemoVC.h; sourceTree = "<group>"; };
 		5B890A801A5A629B0013D654 /* UILabelDemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelDemoVC.m; sourceTree = "<group>"; };
-		622905CF1CE9A10A00357A8E /* HOpenURLDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HOpenURLDelegate.h; sourceTree = "<group>"; };
 		64827F391C3A43E100BE3229 /* NSObjectDemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObjectDemoVC.h; sourceTree = "<group>"; };
 		64827F3A1C3A43E100BE3229 /* NSObjectDemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObjectDemoVC.m; sourceTree = "<group>"; };
 		9728AA731CE58341005A034C /* UINavigationController+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+ext.h"; sourceTree = "<group>"; };
@@ -139,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				0008A50F19C836150066E7E7 /* HCommon.h */,
-				622905CF1CE9A10A00357A8E /* HOpenURLDelegate.h */,
 				008764971C716F7F004AB947 /* Categories */,
 				008764B81C716F7F004AB947 /* Defines */,
 				008764BC1C716F7F004AB947 /* Features */,
