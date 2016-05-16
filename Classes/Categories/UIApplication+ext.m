@@ -67,7 +67,7 @@
 - (BOOL)openURLInApp:(NSURL *)url
 {
     //do nothing when application is in UIApplicationStateBackground state
-    if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground)
+    if ([UIApplication sharedApplication].applicationState != UIApplicationStateActive)
     {
         return NO;
     }
@@ -101,17 +101,10 @@
                     }
                 }
                 navi = enumvc.navigationController;
-                [HClassManager scanClassForKey:HApplicationDelegateRegKey fetchblock:^(__unsafe_unretained Class aclass, id userInfo) {
-                    id obj = [[aclass alloc] init];
-                    if ([obj conformsToProtocol:@protocol(HApplicationDelegate)])
-                    {
-                        if ([obj respondsToSelector:@selector(webVCWithUrl:)])
-                        {
-                            UIViewController *vc = [obj webVCWithUrl:url];
-                            [navi pushViewController:vc animated:YES];
-                        }
-                    }
-                }];
+                id<HAppOpenURLProtocal> obj = [HClassManager getObjectOfProtocal:@protocol(HAppOpenURLProtocal)];
+                NSAssert(obj, @"can not find a imp of HAppOpenURLProtocal");
+                UIViewController *webVC = [obj createWebVCWithUrl:url];
+                [navi pushViewController:webVC animated:YES];
                 break;
             }
         }

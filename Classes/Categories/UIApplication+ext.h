@@ -35,10 +35,6 @@
 - (BOOL)openURLInApp:(NSURL *)url;
 @end
 
-#define HApplicationDelegateRegKey (@"HApplicationDelegateRegKey")
-@protocol HApplicationDelegate <NSObject>
-
-@optional
-
-- (UIViewController *)webVCWithUrl:(NSURL *)url;
+@protocol HAppOpenURLProtocal <NSObject>
+- (UIViewController *)createWebVCWithUrl:(NSURL *)url;
 @end
