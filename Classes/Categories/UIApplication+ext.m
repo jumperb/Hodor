@@ -7,6 +7,8 @@
 //
 
 #import "UIApplication+ext.h"
+#import "HClassManager.h"
+#import "HOpenURLDelegate.h"
 
 @implementation UIApplication (ext)
 
@@ -60,5 +62,64 @@
         return (UITabBarController *)tabVC;
     }
     else return nil;
+}
+
+- (BOOL)openURLInApp:(NSURL *)url
+{
+    //在后台不执行
+    if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground)
+    {
+        return NO;
+    }
+    
+    //只有http(s)协议的url才被定向到内部webview
+    if ([url scheme] && ([[url scheme] compare:@"http" options:NSCaseInsensitiveSearch] == NSOrderedSame ||
+                         [[url scheme] compare:@"https" options:NSCaseInsensitiveSearch] == NSOrderedSame))
+    {
+        for (NSInteger i = self.windows.count - 1; i >= 0; i--)
+        {
+            UIWindow *window = self.windows[i];
+            
+            if ([window.rootViewController isKindOfClass:[UINavigationController class]])
+            {
+                UINavigationController *navi = nil;
+                UIViewController *enumvc = window.rootViewController;
+                while (YES)
+                {
+                    if (enumvc.presentedViewController)
+                    {
+                        enumvc = enumvc.presentedViewController;
+                    }
+                    else if ([enumvc isKindOfClass:[UINavigationController class]])
+                    {
+                        UINavigationController *_navi = (UINavigationController *)enumvc;
+                        enumvc = _navi.topViewController;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                navi = enumvc.navigationController;
+                [HClassManager scanClassForKey:HOpenURLDelegateRegKey fetchblock:^(__unsafe_unretained Class aclass, id userInfo) {
+                    id obj = [[aclass alloc] init];
+                    if ([obj conformsToProtocol:@protocol(HOpenURLDelegate)])
+                    {
+                        if ([obj respondsToSelector:@selector(webVCWithUrl:)])
+                        {
+                            UIViewController *vc = [obj webVCWithUrl:url];
+                            [navi pushViewController:vc animated:YES];
+                        }
+                    }
+                }];
+                break;
+            }
+        }
+    }
+    else
+    {
+        return [self openURL:url];
+    }
+    return YES;
 }
 @end

@@ -30,4 +30,7 @@
 
 //get root tabbar vc
 + (UITabBarController *)tabbarVC;
+
+//open url in application
+- (BOOL)openURLInApp:(NSURL *)url;
 @end
