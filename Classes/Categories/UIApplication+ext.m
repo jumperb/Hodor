@@ -66,12 +66,6 @@
 //open url in application
 - (BOOL)openURLInApp:(NSURL *)url
 {
-    //do nothing when application is in UIApplicationStateBackground state
-    if ([UIApplication sharedApplication].applicationState != UIApplicationStateActive)
-    {
-        return NO;
-    }
-    
     //only the url confirmed to http(s) protocal can goto a inner webview
     if ([url scheme] && ([[url scheme] compare:@"http" options:NSCaseInsensitiveSearch] == NSOrderedSame ||
                          [[url scheme] compare:@"https" options:NSCaseInsensitiveSearch] == NSOrderedSame))
