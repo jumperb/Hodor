@@ -80,6 +80,7 @@
 {
     __block NSString *className = nil;
     NSSet *targetClasses = [[self sharedKit] getClassesForKey:key];
+    NSAssert(targetClasses.count <= 1, ([NSString stringWithFormat:@"exsit one more %@", key]));
     [targetClasses enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
         if ([obj isKindOfClass:[HClassContainner class]])
         {
