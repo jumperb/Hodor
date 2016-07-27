@@ -35,3 +35,16 @@ void dispatchAfter(float sec, void (^action)(void))
         if (action) action();
     });
 }
+
+void asyncAtMain(void (^action)(void))
+{
+    if (!action) return;
+    dispatch_async(dispatch_get_main_queue(), action);
+}
+
+
+void asyncAtQueue(dispatch_queue_t queue, void (^action)(void))
+{
+    if (!action) return;
+    dispatch_async(queue, action);
+}
