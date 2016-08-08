@@ -39,6 +39,16 @@
     return self.frame.size.height;
 }
 
+- (CGFloat)innerHeight
+{
+    return self.bounds.origin.y + self.frame.size.height;
+}
+
+- (CGFloat)innerWidth
+{
+    return self.bounds.origin.x + self.frame.size.width;
+}
+
 - (CGFloat)xmax
 {
     return self.frame.origin.x + self.frame.size.width;
