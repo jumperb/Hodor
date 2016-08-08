@@ -17,6 +17,11 @@
 @property (nonatomic, assign) CGFloat width;
 @property (nonatomic, assign) CGFloat height;
 
+// self.bounds.origin.y + self.frame.size.height
+@property (nonatomic, assign) CGFloat innerHeight;
+// self.bounds.origin.x + self.frame.size.width
+@property (nonatomic, assign) CGFloat innerWidth;
+
 // self.frame.origin.x + self.frame.size.width
 @property (nonatomic, assign) CGFloat xmax;
 // self.frame.origin.y + self.frame.size.height
