@@ -23,7 +23,8 @@
 {
     if (![NSThread isMainThread])
     {
-        NSAssert(NO, @"后台有地方调用了UIKit框架的接口，这种行为可能导致应用整体动画失效及其它不可预测的问题！！！如发现此断言，请在UIView+BadBackgroundBehavior类的-sc_setAnimationsEnabled:方法处打断点，查看线程调用情况！");
+        NSAssert(NO,
+                 @"UIKit interface called on secondary thread, and that behavior will lead to all animation not work in your app!!! Please put a Breakpoint here and check all thread call stack!!!");
     }
     [self sc_setAnimationsEnabled:enabled];
 }
