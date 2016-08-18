@@ -41,6 +41,7 @@
 		00FF4FFC1C74C52A00D42303 /* NSObjectAnnotationTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FF4FFB1C74C52A00D42303 /* NSObjectAnnotationTestVC.m */; };
 		5B890A811A5A629B0013D654 /* UILabelDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B890A801A5A629B0013D654 /* UILabelDemoVC.m */; };
 		64827F3B1C3A43E100BE3229 /* NSObjectDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64827F3A1C3A43E100BE3229 /* NSObjectDemoVC.m */; };
+		7FC8F7981D655646002987FC /* UIView+BadBackgroundBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8F7971D655646002987FC /* UIView+BadBackgroundBehavior.m */; };
 		9728AA751CE58341005A034C /* UINavigationController+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 9728AA741CE58341005A034C /* UINavigationController+ext.m */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,8 @@
 		5B890A801A5A629B0013D654 /* UILabelDemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelDemoVC.m; sourceTree = "<group>"; };
 		64827F391C3A43E100BE3229 /* NSObjectDemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObjectDemoVC.h; sourceTree = "<group>"; };
 		64827F3A1C3A43E100BE3229 /* NSObjectDemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObjectDemoVC.m; sourceTree = "<group>"; };
+		7FC8F7961D655646002987FC /* UIView+BadBackgroundBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BadBackgroundBehavior.h"; sourceTree = "<group>"; };
+		7FC8F7971D655646002987FC /* UIView+BadBackgroundBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BadBackgroundBehavior.m"; sourceTree = "<group>"; };
 		9728AA731CE58341005A034C /* UINavigationController+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+ext.h"; sourceTree = "<group>"; };
 		9728AA741CE58341005A034C /* UINavigationController+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+ext.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,6 +212,8 @@
 		008764971C716F7F004AB947 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				7FC8F7961D655646002987FC /* UIView+BadBackgroundBehavior.h */,
+				7FC8F7971D655646002987FC /* UIView+BadBackgroundBehavior.m */,
 				008764981C716F7F004AB947 /* NSArray+ext.h */,
 				008764991C716F7F004AB947 /* NSArray+ext.m */,
 				0087649A1C716F7F004AB947 /* NSData+ext.h */,
@@ -406,6 +411,7 @@
 				5B890A811A5A629B0013D654 /* UILabelDemoVC.m in Sources */,
 				008764DC1C716FB5004AB947 /* HGCDext.m in Sources */,
 				002D200319C81D5E0011A8CE /* main.m in Sources */,
+				7FC8F7981D655646002987FC /* UIView+BadBackgroundBehavior.m in Sources */,
 				008764C61C716F7F004AB947 /* NSDictionary+ext.m in Sources */,
 				64827F3B1C3A43E100BE3229 /* NSObjectDemoVC.m in Sources */,
 				00C331861A2D621C00E55793 /* UIImageDemoVC.m in Sources */,
