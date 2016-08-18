@@ -24,7 +24,7 @@
     if (![NSThread isMainThread])
     {
         NSAssert(NO,
-                 @"UIKit interface called on secondary thread, and that behavior will lead to all animation not work in your app!!! Please put a Breakpoint here and check all thread call stack!!!");
+                 @"UIKit interface called on secondary thread, and that behavior will lead to all animation not work in your app!!! Please put a Breakpoint here and check all threads call stack!!!");
     }
     [self sc_setAnimationsEnabled:enabled];
 }
