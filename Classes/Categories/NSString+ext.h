@@ -62,6 +62,6 @@
  *
  *  @return YES/NO
  */
-- (BOOL)stringContainsEmoji:(NSString *)string;
+- (BOOL)stringContainsEmoji;
 
 @end
