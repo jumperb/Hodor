@@ -51,6 +51,13 @@
 [HClassManager registerClass:self forProtocal:pro];\
 }
 
+#define HRegForProtocalAsSingleton(pro, singletonMethod)\
++ (void)load\
+{\
+[super load];\
+[HClassManager registerClass:self forProtocal:pro creator:singletonMethod];\
+}
+
 typedef BOOL (^HClassScanBlock)(Class aclass);
 typedef void (^HClassFetchBlock)(Class aclass, id userInfo);
 typedef void (^HClassNameFetchBlock)(NSString *aclassName, id userInfo);
@@ -67,6 +74,7 @@ typedef void (^HClassNameFetchBlock)(NSString *aclassName, id userInfo);
 + (void)registerClass:(Class)aclass forkey:(NSString *)key;
 + (void)registerClass:(Class)aclass forkey:(NSString *)key userInfo:(id)userInfo;
 + (void)registerClass:(Class)aclass forProtocal:(Protocol *)protocal;
++ (void)registerClass:(Class)aclass forProtocal:(Protocol *)protocal creator:(NSString *)creator;
 + (void)scanClassForKey:(NSString *)key fetchblock:(HClassFetchBlock)block;
 + (void)scanClassNameForKey:(NSString *)key fetchblock:(HClassNameFetchBlock)block;
 //return the first one that found

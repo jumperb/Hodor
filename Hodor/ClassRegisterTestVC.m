@@ -26,6 +26,13 @@
                 NSLog(@"get implement class: %@, userInfo:%@", aclassName, userInfo);
             }];
         }];
+
+        [self addMenu:@"search singleton implement" callback:^(id sender, id data) {
+            id<TestPro2> obj = [HClassManager getObjectOfProtocal:@protocol(TestPro2)];
+            NSLog(@"direct invoke shareInstance : %@", [E shareInstance]);
+            NSLog(@"searched obj : %@", obj);
+
+        }];
     }
     return self;
 }
@@ -45,4 +52,21 @@ HReg2(AClassRegKey, @{@"attr":@"value"})
 
 @implementation D
 HReg(TestProRegKey)
+@end
+
+
+@implementation E
+
+HRegForProtocalAsSingleton(@protocol(TestPro2), @"shareInstance")
+
++ (instancetype)shareInstance
+{
+    static dispatch_once_t pred;
+    static E *o = nil;
+
+    dispatch_once(&pred, ^{ o = [[self alloc] init]; });
+    return o;
+}
+
+
 @end

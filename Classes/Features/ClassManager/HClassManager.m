@@ -7,6 +7,9 @@
 //
 
 #import "HClassManager.h"
+#import "NSObject+ext.h"
+
+#define HClassCreatorKey @"HClassCreatorKey"
 
 @interface HClassManager ()
 @property (nonatomic, strong) NSMutableDictionary *classIndex;
@@ -48,6 +51,11 @@
 {
     NSString *key = [NSString stringWithFormat:@"%@RegKey", NSStringFromProtocol(protocal)];
     [[self sharedKit] registerClass:aclass forkey:key];
+}
++ (void)registerClass:(Class)aclass forProtocal:(Protocol *)protocal creator:(NSString *)creator
+{
+    NSString *key = [NSString stringWithFormat:@"%@RegKey", NSStringFromProtocol(protocal)];
+    [[self sharedKit] registerClass:aclass forkey:key userInfo:@{HClassCreatorKey:creator}];
 }
 + (void)scanClassNameForKey:(NSString *)key fetchblock:(HClassNameFetchBlock)block
 {
@@ -99,11 +107,43 @@
 + (id)getObjectOfProtocal:(Protocol *)protocal
 {
     NSString *key = [NSString stringWithFormat:@"%@RegKey", NSStringFromProtocol(protocal)];
-    NSString *className = [self getClassNameForKey:key];
+
+    __block NSString *className = nil;
+    __block NSString *creator = nil;
+
+    NSSet *targetClasses = [[self sharedKit] getClassesForKey:key];
+    NSAssert(targetClasses.count <= 1, ([NSString stringWithFormat:@"exsit one more %@", key]));
+    [targetClasses enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+        if ([obj isKindOfClass:[HClassContainner class]])
+        {
+            HClassContainner *contanner = (HClassContainner *)obj;
+            className = contanner.containClassName;
+            creator = contanner.userInfo[HClassCreatorKey];
+            *stop = YES;
+        }
+        else if([obj isKindOfClass:[NSString class]])
+        {
+            className = obj;
+            *stop = YES;
+        }
+    }];
+
     if (!className) return nil;
     Class class = NSClassFromString(className);
     if (!class) return nil;
-    id obj = [class new];
+
+    id obj = nil;
+    if (!creator)
+    {
+        obj = [class new];
+    }
+    else
+    {
+        SuppressPerformSelectorLeakWarning(
+        obj = [class performSelector:NSSelectorFromString(@"shareInstance")];
+        );
+
+    }
     if (![obj conformsToProtocol:protocal]) return nil;
     return obj;
 }
