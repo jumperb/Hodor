@@ -140,7 +140,7 @@
     else
     {
         SuppressPerformSelectorLeakWarning(
-        obj = [class performSelector:NSSelectorFromString(@"shareInstance")];
+        obj = [class performSelector:NSSelectorFromString(creator)];
         );
 
     }
