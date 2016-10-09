@@ -34,7 +34,7 @@
     unsigned long creValue = crc32(crc, (const Bytef*)[self bytes], (uInt)[self length]);
 //    char buf[16] = {0};
 //    sprintf(buf, "%x", creValue);
-    NSString *crctring = [[NSString alloc] initWithFormat:@"%lu", creValue];
+    NSString *crctring = [[NSString alloc] initWithFormat:@"%lx", creValue];
     return crctring;
 }
 
