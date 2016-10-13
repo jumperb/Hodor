@@ -354,6 +354,7 @@
 				TargetAttributes = {
 					002D1FFC19C81D5E0011A8CE = {
 						CreatedOnToolsVersion = 6.0;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -513,6 +514,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Hodor/Hodor-Prefix.pch";
 				INFOPLIST_FILE = Hodor/Info.plist;
@@ -529,6 +531,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Hodor/Hodor-Prefix.pch";
 				INFOPLIST_FILE = Hodor/Info.plist;
