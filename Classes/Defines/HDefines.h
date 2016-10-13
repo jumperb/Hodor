@@ -17,7 +17,7 @@
 
 
 // If project include PGL-Core, then use PGL-Core to handle NSAssert for online Assertion Logging
-#if __has_include("PGL-Core.h")
+#if __has_include("PGL-Core.h") || __has_include(<PGL-Core.h>) || __has_include(<PGL-Core/PGL-Core.h>)
 #import "PGL-Core.h"
 #else
 
