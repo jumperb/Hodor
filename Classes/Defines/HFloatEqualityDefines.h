@@ -27,7 +27,7 @@
 #endif
 
 #ifndef F_LESS_THAN
-#define F_LESS_THAN(a,b) ((a - b) < FLT_EPSILON)
+#define F_LESS_THAN(a,b) ((a - b) < FLT_EPSILON && F_NOT_EQUAL(a, b))
 #endif
 
 #ifndef F_LESS_OR_EQUAL_THAN
@@ -35,11 +35,12 @@
 #endif
 
 #ifndef F_GREATER_THAN
-#define F_GREATER_THAN(a,b) ((a - b) > FLT_EPSILON)
+#define F_GREATER_THAN(a,b) ((a - b) > FLT_EPSILON && F_NOT_EQUAL(a, b))
 #endif
 
 #ifndef F_GREATER_OR_EQUAL_THAN
 #define F_GREATER_OR_EQUAL_THAN(a,b) (F_GREATER_THAN(a,b) || F_EQUAL(a,b))
 #endif
+
 
 #endif /* HFloatEqualityDefines_h */
