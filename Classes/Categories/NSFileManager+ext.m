@@ -37,7 +37,7 @@
 + (NSString *)tempPath:(NSString *)subPath
 {
     NSString *dir = NSTemporaryDirectory();
-    if (subPath) return [dir stringByAppendingFormat:@"/%@",subPath];
+    if (subPath) return [dir stringByAppendingFormat:@"%@",subPath];
     else return dir;
 }
 
