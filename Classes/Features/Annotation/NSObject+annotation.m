@@ -14,7 +14,7 @@
 + (NSArray *)annotations:(NSString *)key
 {
     NSArray *formats = nil;
-    NSString *funName = [NSString stringWithFormat:@"ppx_support_%@", key];
+    NSString *funName = [NSString stringWithFormat:@"annotion_support_%@", key];
     SEL selector = NSSelectorFromString(funName);
     if ([self respondsToSelector:selector])
     {

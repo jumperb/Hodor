@@ -18,6 +18,8 @@
 @dynamic xmax;
 @dynamic ymax;
 @dynamic userInfo;
+@dynamic innerWidth;
+@dynamic innerHeight;
 
 - (CGFloat)x
 {
