@@ -98,13 +98,13 @@ ppx(ID, @"f")
 ppx(c, @"g")
 ppx(p,@(2))
 
-ppx(func1, @[@"h",@"i"])
+fpx(func1, @[@"h",@"i"])
 - (void)func1 {}
 
-ppx(func2_withb_, @{@"j":@"k"})
+fpx(func2_withb_, @{@"j":@"k"})
 - (void)func2:(int)a withb:(NSString *)b {}
 
-ppx(func3, @(5))
+fpx(func3, @(5))
 + (void)func3 {}
 
 - (void)func4 {}
