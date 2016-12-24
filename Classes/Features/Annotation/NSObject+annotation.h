@@ -8,19 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-#define ppx_valid(__KEY__)\
-({\
-if (NO) {\
-[([self.class new]) __KEY__];\
-}\
-})
+//#define ppx_valid(__KEY__)\
+//({\
+//if (NO) {\
+//[([self.class new]) __KEY__];\
+//}\
+//})
 
 
 //propert annotion define
 #define ppx(n, ...) \
 + (NSArray *)annotion_support_##n\
 {\
-ppx_valid(n);\
 return @[__VA_ARGS__];\
 }
 
