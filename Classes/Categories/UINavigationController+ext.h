@@ -19,4 +19,13 @@
  */
 - (BOOL)hPopToViewControllerOfClass:(Class)klass animated:(BOOL)animated;
 
+/**
+ *  replace top view controller
+ *
+ *  @param vc    viewcontroller
+ *  @param animated animated
+ *
+ */
+- (void)replaceTopViewController:(UIViewController *)vc animated:(BOOL)animated;
+
 @end

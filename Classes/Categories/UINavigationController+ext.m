@@ -28,4 +28,15 @@
     return success;
 }
 
+
+- (void)replaceTopViewController:(UIViewController *)vc animated:(BOOL)animated
+{
+    NSMutableArray *vcs = [NSMutableArray arrayWithArray:self.viewControllers];
+    if (vcs.count > 0)
+    {
+        [vcs removeLastObject];
+        [vcs addObject:vc];
+    }
+    [self setViewControllers:vcs animated:animated];
+}
 @end
