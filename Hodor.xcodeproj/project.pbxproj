@@ -10,6 +10,7 @@
 		000228D21C75839C001D4B68 /* ClassRegisterTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 000228D11C75839C001D4B68 /* ClassRegisterTestVC.m */; };
 		0008A50D19C821020066E7E7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0008A50C19C821020066E7E7 /* libz.dylib */; };
 		001D23271C34CB6E00B95CA7 /* HGCDExtTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 001D23261C34CB6E00B95CA7 /* HGCDExtTestVC.m */; };
+		002CBABD1E15FB2500193CA9 /* UIScreen+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CBABC1E15FB2500193CA9 /* UIScreen+ext.m */; };
 		002D200319C81D5E0011A8CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 002D200219C81D5E0011A8CE /* main.m */; };
 		002D200619C81D5E0011A8CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 002D200519C81D5E0011A8CE /* AppDelegate.m */; };
 		002D200819C81D5E0011A8CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 002D200719C81D5E0011A8CE /* Images.xcassets */; };
@@ -53,6 +54,8 @@
 		0008A50F19C836150066E7E7 /* HCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommon.h; sourceTree = "<group>"; };
 		001D23251C34CB6E00B95CA7 /* HGCDExtTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGCDExtTestVC.h; sourceTree = "<group>"; };
 		001D23261C34CB6E00B95CA7 /* HGCDExtTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGCDExtTestVC.m; sourceTree = "<group>"; };
+		002CBABB1E15FB2500193CA9 /* UIScreen+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+ext.h"; sourceTree = "<group>"; };
+		002CBABC1E15FB2500193CA9 /* UIScreen+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+ext.m"; sourceTree = "<group>"; };
 		002D1FFD19C81D5E0011A8CE /* Hodor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hodor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		002D200119C81D5E0011A8CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		002D200219C81D5E0011A8CE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -248,6 +251,8 @@
 				008764B71C716F7F004AB947 /* UIView+ext.m */,
 				9728AA731CE58341005A034C /* UINavigationController+ext.h */,
 				9728AA741CE58341005A034C /* UINavigationController+ext.m */,
+				002CBABB1E15FB2500193CA9 /* UIScreen+ext.h */,
+				002CBABC1E15FB2500193CA9 /* UIScreen+ext.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -402,6 +407,7 @@
 				00FF4FF91C74C19700D42303 /* NSObject+annotation.m in Sources */,
 				002D200619C81D5E0011A8CE /* AppDelegate.m in Sources */,
 				008764CF1C716F7F004AB947 /* UIColor+ext.m in Sources */,
+				002CBABD1E15FB2500193CA9 /* UIScreen+ext.m in Sources */,
 				008764C31C716F7F004AB947 /* NSArray+ext.m in Sources */,
 				00CB563B1C33ACEB00380F74 /* HTestVC.m in Sources */,
 				008764CA1C716F7F004AB947 /* NSNumber+ext.m in Sources */,

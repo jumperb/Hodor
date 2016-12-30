@@ -12,21 +12,27 @@
 
 #pragma mark - position
 
-@property (nonatomic, assign) CGFloat x;
-@property (nonatomic, assign) CGFloat y;
-@property (nonatomic, assign) CGFloat width;
-@property (nonatomic, assign) CGFloat height;
+@property (nonatomic) CGFloat x;
+@property (nonatomic) CGFloat y;
+@property (nonatomic) CGFloat width;
+@property (nonatomic) CGFloat height;
+@property (nonatomic) CGPoint origin;
+@property (nonatomic) CGSize size;
 
-// self.bounds.origin.y + self.frame.size.height
-@property (nonatomic, assign) CGFloat innerHeight;
-// self.bounds.origin.x + self.frame.size.width
-@property (nonatomic, assign) CGFloat innerWidth;
+
 
 // self.frame.origin.x + self.frame.size.width
-@property (nonatomic, assign) CGFloat xmax;
+@property (nonatomic) CGFloat xmax;
 // self.frame.origin.y + self.frame.size.height
-@property (nonatomic, assign) CGFloat ymax;
-
+@property (nonatomic) CGFloat ymax;
+// self.center.x
+@property (nonatomic) CGFloat centerX;
+// self.center.y
+@property (nonatomic) CGFloat centerY;
+// self.bounds.origin.y + self.bounds.size.height
+@property (nonatomic, readonly) CGFloat innerHeight;
+// self.bounds.origin.x + self.bounds.size.width
+@property (nonatomic, readonly) CGFloat innerWidth;
 #pragma mark - other
 
 @property (nonatomic, strong) id userInfo;

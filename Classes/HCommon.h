@@ -15,6 +15,7 @@
 #import "UIColor+ext.h"
 #import "NSData+ext.h"
 #import "UIImage+ext.h"
+#import "UIScreen+ext.h"
 #import "NSArray+ext.h"
 #import "NSString+ext.h"
 #import "NSDictionary+ext.h"
@@ -28,4 +29,6 @@
 #import "UILabel+ext.h"
 #import "UIButton+ext.h"
 #import "UIApplication+ext.h"
+#import "UINavigationController+ext.h"
+#import "HGCDext.h"
 #endif
