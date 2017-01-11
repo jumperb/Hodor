@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Hodor"
-  s.version      = "1.8.8"
+  s.version      = "1.8.9"
   s.summary      = "A short description of Hodor."
 
   s.description  = <<-DESC
