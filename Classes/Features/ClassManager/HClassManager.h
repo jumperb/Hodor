@@ -59,7 +59,7 @@
 }
 
 
-#define HInstance(pro) ((id<pro>)[HClassManager getObjectOfProtocal:@protocol(pro)])
+#define HProtocalInstance(pro) ((id<pro>)[HClassManager getObjectOfProtocal:@protocol(pro)])
 
 typedef BOOL (^HClassScanBlock)(Class aclass);
 typedef void (^HClassFetchBlock)(Class aclass, id userInfo);

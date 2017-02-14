@@ -29,8 +29,8 @@
 
         [self addMenu:@"search singleton implement" callback:^(id sender, id data) {
             NSLog(@"direct invoke shareInstance : %@", [E shareInstance]);
-            NSLog(@"searched obj : %@", HInstance(TestPro2));
-            [HInstance(TestPro2) testFun];
+            NSLog(@"searched obj : %@", HProtocalInstance(TestPro2));
+            [HProtocalInstance(TestPro2) testFun];
         }];
     }
     return self;
