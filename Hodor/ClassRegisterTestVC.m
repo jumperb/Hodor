@@ -28,10 +28,9 @@
         }];
 
         [self addMenu:@"search singleton implement" callback:^(id sender, id data) {
-            id<TestPro2> obj = [HClassManager getObjectOfProtocal:@protocol(TestPro2)];
             NSLog(@"direct invoke shareInstance : %@", [E shareInstance]);
-            NSLog(@"searched obj : %@", obj);
-
+            NSLog(@"searched obj : %@", HInstance(TestPro2));
+            [HInstance(TestPro2) testFun];
         }];
     }
     return self;
@@ -68,5 +67,8 @@ HRegForProtocalAsSingleton(@protocol(TestPro2), @"shareInstance")
     return o;
 }
 
-
+- (void)testFun
+{
+    NSLog(@"testFun");
+}
 @end

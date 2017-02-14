@@ -70,37 +70,16 @@
     if ([url scheme] && ([[url scheme] compare:@"http" options:NSCaseInsensitiveSearch] == NSOrderedSame ||
                          [[url scheme] compare:@"https" options:NSCaseInsensitiveSearch] == NSOrderedSame))
     {
-        for (NSInteger i = self.windows.count - 1; i >= 0; i--)
+        id<HAppOpenURLProtocal> obj = [HClassManager getObjectOfProtocal:@protocol(HAppOpenURLProtocal)];
+        NSAssert(obj, @"can not find a imp of HAppOpenURLProtocal");
+        if (obj)
         {
-            UIWindow *window = self.windows[i];
-            
-            if ([window.rootViewController isKindOfClass:[UINavigationController class]])
-            {
-                UINavigationController *navi = nil;
-                UIViewController *enumvc = window.rootViewController;
-                while (YES)
-                {
-                    if (enumvc.presentedViewController)
-                    {
-                        enumvc = enumvc.presentedViewController;
-                    }
-                    else if ([enumvc isKindOfClass:[UINavigationController class]])
-                    {
-                        UINavigationController *_navi = (UINavigationController *)enumvc;
-                        enumvc = _navi.topViewController;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                navi = enumvc.navigationController;
-                id<HAppOpenURLProtocal> obj = [HClassManager getObjectOfProtocal:@protocol(HAppOpenURLProtocal)];
-                NSAssert(obj, @"can not find a imp of HAppOpenURLProtocal");
-                UIViewController *webVC = [obj createWebVCWithUrl:url];
-                [navi pushViewController:webVC animated:YES];
-                break;
-            }
+            UIViewController *webVC = [obj createWebVCWithUrl:url];
+            [[UIApplication navi] pushViewController:webVC animated:YES];
+        }
+        else
+        {
+            [self openURL:url];
         }
     }
     else

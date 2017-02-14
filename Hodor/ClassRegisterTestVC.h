@@ -19,7 +19,7 @@
 
 @end
 @protocol TestPro2 <NSObject>
-
+- (void)testFun;
 @end
 
 #define AClassRegKey @"AClassRegKey"

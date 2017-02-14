@@ -58,6 +58,9 @@
 [HClassManager registerClass:self forProtocal:pro creator:singletonMethod];\
 }
 
+
+#define HInstance(pro) ((id<pro>)[HClassManager getObjectOfProtocal:@protocol(pro)])
+
 typedef BOOL (^HClassScanBlock)(Class aclass);
 typedef void (^HClassFetchBlock)(Class aclass, id userInfo);
 typedef void (^HClassNameFetchBlock)(NSString *aclassName, id userInfo);
