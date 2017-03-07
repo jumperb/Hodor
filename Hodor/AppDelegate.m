@@ -29,8 +29,12 @@
     
     //EDI
     H_ExtendInvoke3(&application,&launchOptions);
-    
+
+    [AppDelegate someClassMethod];
     return YES;
 }
-
++ (void)someClassMethod
+{
+    H_ExtendInvoke4
+}
 @end

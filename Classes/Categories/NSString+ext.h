@@ -56,4 +56,12 @@
  */
 - (CGSize)hSizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size;
 - (CGSize)hSizeWithFont:(UIFont *)font;
+
+/**
+ *  String contains Emoji
+ *
+ *  @return YES/NO
+ */
+- (BOOL)stringContainsEmoji;
+
 @end
