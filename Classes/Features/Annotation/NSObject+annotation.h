@@ -9,9 +9,28 @@
 #import <Foundation/Foundation.h>
 
 
+#define pp_property(object, property) (^{ \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wunreachable-code\"") \
+_Pragma("clang diagnostic ignored \"-Wimplicit-retain-self\"") \
+return ((void)(NO && ((void)object.property, NO)), @#property); \
+_Pragma("clang diagnostic pop") \
+}())
+
+
+#define pp_class_property(class, property) (^{ \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wunreachable-code\"") \
+_Pragma("clang diagnostic ignored \"-Wimplicit-retain-self\"") \
+return ((void)(NO && ((void)[[class new] property], NO)), @#property); \
+_Pragma("clang diagnostic pop") \
+}())
+
+
 #define ppx(n, ...) \
 + (NSArray *)ppx_support_##n\
 {\
+pp_class_property(self, n);\
 return @[__VA_ARGS__];\
 }
 
