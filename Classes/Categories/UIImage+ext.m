@@ -137,6 +137,18 @@ static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
     UIGraphicsEndImageContext();
     return newimg;
 }
+- (UIImage *)thumbnail
+{
+    float w = [UIScreen mainScreen].bounds.size.width * [UIScreen mainScreen].scale / 4;
+    if (self.size.width * self.scale > w)
+    {
+        return [self thumbnailWithWidth:w];
+    }
+    else
+    {
+        return self;
+    }
+}
 - (UIImage *)scaleTo:(float)scaleValue
 {
     UIGraphicsBeginImageContext(CGSizeMake(self.size.width * scaleValue, self.size.height * scaleValue));

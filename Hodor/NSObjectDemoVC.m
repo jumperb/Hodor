@@ -48,8 +48,13 @@
 
 - (BOOL)moduleA_application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSLog(@"## moduleA extend 'didFinishLaunchingWithOptions'");
+    NSLog(@"## moduleA extend 'someClassMethod'");
     return YES;
+}
+
++ (void)moduleA_someClassMethod
+{
+    NSLog(@"## moduleA extend 'someClassMethod'");
 }
 @end
 
@@ -61,5 +66,11 @@
     NSLog(@"## moduleB extent 'didFinishLaunchingWithOptions'");
     return YES;
 }
++ (void)moduleB_someClassMethod
+{
+    NSLog(@"## moduleB extend 'someClassMethod'");
+}
 @end
+
+
 

@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 #define pp_property(object, property) (^{ \
 _Pragma("clang diagnostic push") \
 _Pragma("clang diagnostic ignored \"-Wunreachable-code\"") \
@@ -27,19 +26,27 @@ _Pragma("clang diagnostic pop") \
 }())
 
 
+
+//propert annotion define
 #define ppx(n, ...) \
-+ (NSArray *)ppx_support_##n\
++ (NSArray *)annotion_support_##n\
 {\
 pp_class_property(self, n);\
 return @[__VA_ARGS__];\
 }
 
+//function annotion define
+#define fpx(n, ...) \
++ (NSArray *)annotion_support_##n\
+{\
+return @[__VA_ARGS__];\
+}
 
 /**
  *  annotation support
  *  if your set a annotation to a function like 'func:a:b:'
  *  you need change it to func_a_b_ by hFormateAnnotationName , and use it as annotation name
- *  like this ppx(func_a_b_, *, *, *)
+ *  like this fpx(func_a_b_, *, *, *)
  */
 @interface NSObject (annotation)
 

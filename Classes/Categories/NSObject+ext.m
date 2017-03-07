@@ -172,12 +172,16 @@
 {
     //deal the type and function name
     NSArray * clsArr = [invokeString componentsSeparatedByString:@" "];
+    BOOL isClassMethod = [[invokeString substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"+"];
     NSString * clsStr = [clsArr[0] substringFromIndex:2];
     NSString * methodString = clsArr[1];
     NSString * methodName = [clsArr[1] substringToIndex:methodString.length-1];
     
     Class cls = NSClassFromString(clsStr);
-    
+    if (isClassMethod)
+    {
+        cls = objc_getMetaClass([clsStr cStringUsingEncoding:NSUTF8StringEncoding]);
+    }
     unsigned int count = 0;
     Method *methods = class_copyMethodList(cls, &count);
     for (int i = 0; i < count; i++)

@@ -53,7 +53,14 @@
  *  @return
  */
 - (UIImage *)thumbnailWithWidth:(float)width;
-
+/**
+ *  gen square thumbnail image
+ *
+ *  width = screen width / 4
+ *
+ *  @return
+ */
+- (UIImage *)thumbnail;
 /**
  *  scale image
  *

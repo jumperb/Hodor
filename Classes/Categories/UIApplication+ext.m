@@ -7,6 +7,7 @@
 //
 
 #import "UIApplication+ext.h"
+#import "HClassManager.h"
 
 @implementation UIApplication (ext)
 
@@ -60,5 +61,31 @@
         return (UITabBarController *)tabVC;
     }
     else return nil;
+}
+
+//open url in application
+- (BOOL)openURLInApp:(NSURL *)url
+{
+    //only the url confirmed to http(s) protocal can goto a inner webview
+    if ([url scheme] && ([[url scheme] compare:@"http" options:NSCaseInsensitiveSearch] == NSOrderedSame ||
+                         [[url scheme] compare:@"https" options:NSCaseInsensitiveSearch] == NSOrderedSame))
+    {
+        id<HAppOpenURLProtocal> obj = [HClassManager getObjectOfProtocal:@protocol(HAppOpenURLProtocal)];
+        NSAssert(obj, @"can not find a imp of HAppOpenURLProtocal");
+        if (obj)
+        {
+            UIViewController *webVC = [obj createWebVCWithUrl:url];
+            [[UIApplication navi] pushViewController:webVC animated:YES];
+        }
+        else
+        {
+            [self openURL:url];
+        }
+    }
+    else
+    {
+        return [self openURL:url];
+    }
+    return YES;
 }
 @end

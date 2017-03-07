@@ -18,7 +18,9 @@
 @protocol TestPro <NSObject>
 
 @end
-
+@protocol TestPro2 <NSObject>
+- (void)testFun;
+@end
 
 #define AClassRegKey @"AClassRegKey"
 @interface A : NSObject
@@ -35,4 +37,8 @@
 
 @interface D : A
 
+@end
+
+@interface E : A <TestPro2>
++ (instancetype)shareInstance;
 @end

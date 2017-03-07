@@ -31,16 +31,7 @@
                     NSArray *ants = [theClass annotations:ppName];
                     if (ants) NSLog(@"property:%@ annotations:%@", ppName, ants);
                 }
-                theClass = class_getSuperclass(theClass);
 
-                NSArray *instanceMethods = [NSObject hInstanceMethodNames:theClass];
-                NSArray *classMethods = [NSObject hClassMethodNames:theClass];
-                NSArray *methods = [instanceMethods arrayByAddingObjectsFromArray:classMethods];
-                for (NSString *name in methods)
-                {
-                    NSArray *ants = [theClass annotations:hFormateAnnotationName(name)];
-                    if (ants) NSLog(@"function:%@ annotations:%@", name, ants);
-                }
                 theClass = class_getSuperclass(theClass);
             }
             
@@ -85,13 +76,17 @@ ppx(func1, @[@"h",@"i"])
 
 //ppx(func2_withb_, @{@"j":@"k"})
 
+fpx(func2_withb_, @{@"j":@"k"})
 - (void)func2:(int)a withb:(NSString *)b;
 {
     
 }
 
-ppx(func3, @(5))
-//ppx(ffunc3, @(5)) // error
+ppx(str2, @(5))
+ppx(ID2, @(5))
+ppx(c2, @(5))
+//ppx(sttr, @(5)) // error
+fpx(func3, @(5))
 + (void)func3
 {
     
