@@ -38,6 +38,10 @@
 {
     return (long)[self longLongValue];
 }
+- (char)charValue
+{
+    return [self intValue];
+}
 - (NSString *)trim
 {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
