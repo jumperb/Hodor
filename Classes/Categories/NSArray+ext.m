@@ -78,4 +78,13 @@
         return str;
     }
 }
+- (id)serialization
+{
+    NSMutableArray *arr = [NSMutableArray new];
+    for (id obj in self)
+    {
+        [arr addObject:[obj serialization]];
+    }
+    return arr;
+}
 @end

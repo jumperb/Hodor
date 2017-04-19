@@ -79,4 +79,8 @@
 {
     return @"null";
 }
+- (id)serialization
+{
+    return @"null";
+}
 @end

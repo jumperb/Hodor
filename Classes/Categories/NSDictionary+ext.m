@@ -73,4 +73,12 @@
         return str;
     }
 }
+- (id)serialization
+{
+    __block NSMutableDictionary *dict = [NSMutableDictionary new];
+    [self enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        [dict setObject:[obj serialization] forKey:key];
+    }];
+    return dict;
+}
 @end

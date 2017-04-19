@@ -50,7 +50,6 @@
 
 - (id)serialization
 {
-    if([NSObject isSerializationObject:self]) return self;
     NSArray *properties = [NSObject depPPListOfClass:self.class];
     if (properties.count)
     {
@@ -60,14 +59,7 @@
             id value = [self valueForKey:key];
             if (value && value != [NSNull null])
             {
-                if([NSObject isSerializationObject:value])
-                {
-                    [dict setValue:value forKey:key];
-                }
-                else
-                {
-                    [dict setValue:[value serialization] forKey:key];
-                }
+                [dict setValue:[value serialization] forKey:key];
             }
         }
         return dict;

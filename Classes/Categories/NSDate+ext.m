@@ -82,4 +82,8 @@
     NSDate *dayBegin = [calendar dateByAddingComponents:adcomps toDate:date options:0];
     return [dayBegin timeIntervalSince1970];
 }
+- (id)serialization
+{
+    return @([self timeIntervalSince1970]);
+}
 @end

@@ -13,4 +13,8 @@
 {
     return [self stringValue];
 }
+- (id)serialization
+{
+    return self;
+}
 @end
