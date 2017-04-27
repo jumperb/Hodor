@@ -56,7 +56,7 @@ HReg(TestProRegKey)
 
 @implementation E
 
-HRegForProtocalAsSingleton(@protocol(TestPro2), @"shareInstance")
+HRegForProtocalAsSingleton(TestPro2, @"shareInstance")
 
 + (instancetype)shareInstance
 {

@@ -48,14 +48,14 @@
 + (void)load\
 {\
 [super load];\
-[HClassManager registerClass:self forProtocal:pro];\
+[HClassManager registerClass:self forProtocal:@protocol(pro)];\
 }
 
 #define HRegForProtocalAsSingleton(pro, singletonMethod)\
 + (void)load\
 {\
 [super load];\
-[HClassManager registerClass:self forProtocal:pro creator:singletonMethod];\
+[HClassManager registerClass:self forProtocal:@protocol(pro) creator:singletonMethod];\
 }
 
 

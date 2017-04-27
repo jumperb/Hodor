@@ -8,13 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		000228D21C75839C001D4B68 /* ClassRegisterTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 000228D11C75839C001D4B68 /* ClassRegisterTestVC.m */; };
-		0008A50D19C821020066E7E7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0008A50C19C821020066E7E7 /* libz.dylib */; };
 		001D23271C34CB6E00B95CA7 /* HGCDExtTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 001D23261C34CB6E00B95CA7 /* HGCDExtTestVC.m */; };
 		002CBABD1E15FB2500193CA9 /* UIScreen+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CBABC1E15FB2500193CA9 /* UIScreen+ext.m */; };
 		002D200319C81D5E0011A8CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 002D200219C81D5E0011A8CE /* main.m */; };
 		002D200619C81D5E0011A8CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 002D200519C81D5E0011A8CE /* AppDelegate.m */; };
 		002D200819C81D5E0011A8CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 002D200719C81D5E0011A8CE /* Images.xcassets */; };
-		004431171A418F920067F034 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 004431161A418F920067F034 /* Accelerate.framework */; };
 		00527B571C59B65500B78C82 /* TestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 00527B561C59B65500B78C82 /* TestObj.m */; };
 		008764C31C716F7F004AB947 /* NSArray+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 008764991C716F7F004AB947 /* NSArray+ext.m */; };
 		008764C41C716F7F004AB947 /* NSData+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 0087649B1C716F7F004AB947 /* NSData+ext.m */; };
@@ -40,6 +38,8 @@
 		00CB563D1C33B17F00380F74 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00CB563C1C33B17F00380F74 /* bg.jpg */; };
 		00FF4FF91C74C19700D42303 /* NSObject+annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FF4FF81C74C19700D42303 /* NSObject+annotation.m */; };
 		00FF4FFC1C74C52A00D42303 /* NSObjectAnnotationTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FF4FFB1C74C52A00D42303 /* NSObjectAnnotationTestVC.m */; };
+		15DCF62E1EB1D24100B53D62 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DCF62D1EB1D24100B53D62 /* libz.tbd */; };
+		15DCF6301EB1D25800B53D62 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DCF62F1EB1D25800B53D62 /* Accelerate.framework */; };
 		5B890A811A5A629B0013D654 /* UILabelDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B890A801A5A629B0013D654 /* UILabelDemoVC.m */; };
 		64827F3B1C3A43E100BE3229 /* NSObjectDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64827F3A1C3A43E100BE3229 /* NSObjectDemoVC.m */; };
 		7FC8F7981D655646002987FC /* UIView+BadBackgroundBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8F7971D655646002987FC /* UIView+BadBackgroundBehavior.m */; };
@@ -50,7 +50,6 @@
 		000228D01C75839C001D4B68 /* ClassRegisterTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassRegisterTestVC.h; sourceTree = "<group>"; };
 		000228D11C75839C001D4B68 /* ClassRegisterTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassRegisterTestVC.m; sourceTree = "<group>"; };
 		0008A50319C81EBB0066E7E7 /* Hodor-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Hodor-Prefix.pch"; sourceTree = "<group>"; };
-		0008A50C19C821020066E7E7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		0008A50F19C836150066E7E7 /* HCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommon.h; sourceTree = "<group>"; };
 		001D23251C34CB6E00B95CA7 /* HGCDExtTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGCDExtTestVC.h; sourceTree = "<group>"; };
 		001D23261C34CB6E00B95CA7 /* HGCDExtTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGCDExtTestVC.m; sourceTree = "<group>"; };
@@ -64,7 +63,6 @@
 		002D200719C81D5E0011A8CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		002D201219C81D5E0011A8CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		002D201319C81D5E0011A8CE /* HodorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HodorTests.m; sourceTree = "<group>"; };
-		004431161A418F920067F034 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		00527B551C59B65500B78C82 /* TestObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObj.h; sourceTree = "<group>"; };
 		00527B561C59B65500B78C82 /* TestObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObj.m; sourceTree = "<group>"; };
 		008764981C716F7F004AB947 /* NSArray+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ext.h"; sourceTree = "<group>"; };
@@ -117,6 +115,8 @@
 		00FF4FF81C74C19700D42303 /* NSObject+annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+annotation.m"; sourceTree = "<group>"; };
 		00FF4FFA1C74C52A00D42303 /* NSObjectAnnotationTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObjectAnnotationTestVC.h; sourceTree = "<group>"; };
 		00FF4FFB1C74C52A00D42303 /* NSObjectAnnotationTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObjectAnnotationTestVC.m; sourceTree = "<group>"; };
+		15DCF62D1EB1D24100B53D62 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		15DCF62F1EB1D25800B53D62 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		5B890A7F1A5A629B0013D654 /* UILabelDemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelDemoVC.h; sourceTree = "<group>"; };
 		5B890A801A5A629B0013D654 /* UILabelDemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelDemoVC.m; sourceTree = "<group>"; };
 		64827F391C3A43E100BE3229 /* NSObjectDemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObjectDemoVC.h; sourceTree = "<group>"; };
@@ -132,8 +132,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				004431171A418F920067F034 /* Accelerate.framework in Frameworks */,
-				0008A50D19C821020066E7E7 /* libz.dylib in Frameworks */,
+				15DCF6301EB1D25800B53D62 /* Accelerate.framework in Frameworks */,
+				15DCF62E1EB1D24100B53D62 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,11 +155,10 @@
 			isa = PBXGroup;
 			children = (
 				0008A50E19C836150066E7E7 /* Classes */,
-				004431161A418F920067F034 /* Accelerate.framework */,
-				0008A50C19C821020066E7E7 /* libz.dylib */,
 				002D1FFF19C81D5E0011A8CE /* Hodor */,
 				002D201019C81D5E0011A8CE /* HodorTests */,
 				002D1FFE19C81D5E0011A8CE /* Products */,
+				15DCF62C1EB1D24100B53D62 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -326,6 +325,15 @@
 				00FF4FF81C74C19700D42303 /* NSObject+annotation.m */,
 			);
 			path = Annotation;
+			sourceTree = "<group>";
+		};
+		15DCF62C1EB1D24100B53D62 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15DCF62F1EB1D25800B53D62 /* Accelerate.framework */,
+				15DCF62D1EB1D24100B53D62 /* libz.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

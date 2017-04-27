@@ -8,7 +8,7 @@
 
 #import "NSData+ext.h"
 #import "zlib.h"
-#import<CommonCrypto/CommonDigest.h>
+#import <CommonCrypto/CommonDigest.h>
 
 @implementation NSData (ext)
 

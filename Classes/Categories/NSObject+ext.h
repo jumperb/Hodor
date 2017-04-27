@@ -75,7 +75,7 @@ if (![arg isKindOfClass:[_class class]])\
  *  @param invokeString stringfromSelector，like -[className funcName]，we use '__func__'
  *  @param preTag       preTag. default is '_'
  *                      eg: faction '-init', and the preTag is 'abc',  then the function like - ***abcinit will invoked。
- *  @param arguments
+ *  @param firstParameter arguments
  */
 - (void)extendInvoke:(NSString *)invokeString withPre:(NSString *)preTag withMethodArgments:(void *)firstParameter, ...;
 
