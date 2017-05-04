@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
       # ss.dependency 'AFNetworking' ,'~>2.0'
       # ss.dependency 'HCache'
       # ss.dependency 'HAccess/Entity'
-      ss.ios.source_files = 'Classes/Features/*.{h,m,mm,cpp,c}'
+      ss.ios.source_files = 'Classes/Features/**/*.{h,m,mm,cpp,c}'
   end
 
 

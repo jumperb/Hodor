@@ -7,7 +7,9 @@
 //
 
 #import "UIApplication+ext.h"
+#if __has_include("HClassManager.h")
 #import "HClassManager.h"
+#endif
 
 @implementation UIApplication (ext)
 
@@ -62,7 +64,7 @@
     }
     else return nil;
 }
-
+#if __has_include("HClassManager.h")
 //open url in application
 - (BOOL)openURLInApp:(NSURL *)url
 {
@@ -88,4 +90,5 @@
     }
     return YES;
 }
+#endif
 @end
