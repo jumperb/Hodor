@@ -27,16 +27,6 @@ Pod::Spec.new do |s|
   s.subspec 'Defines' do |ss|
       ss.ios.source_files = 'Classes/Defines/*.{h,m,mm,cpp,c}'
   end
-
-  s.subspec 'Feature' do |ss|
-      # ss.dependency 'Hodor'
-      # ss.dependency 'AFNetworking' ,'~>2.0'
-      # ss.dependency 'HCache'
-      # ss.dependency 'HAccess/Entity'
-      ss.ios.source_files = 'Classes/Features/**/*.{h,m,mm,cpp,c}'
-  end
-
-
   s.subspec 'NS-Category' do |ss|
       ss.libraries = 'z'
       ss.ios.source_files = 'Classes/NS-Category/*.{h,m,mm,cpp,c}'
@@ -46,8 +36,8 @@ Pod::Spec.new do |s|
       ss.framework = 'Accelerate'
       ss.ios.source_files = 'Classes/UI-Category/*.{h,m,mm,cpp,c}'
   end
-
-
-  
-
+  s.subspec 'Feature' do |ss|
+      ss.dependency 'Hodor/NS-Category'
+      ss.ios.source_files = 'Classes/Features/**/*.{h,m,mm,cpp,c}'
+  end
 end
