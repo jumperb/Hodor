@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Hodor"
-  s.version      = "2.0.2"
+  s.version      = "2.0.3"
   s.summary      = "A short description of Hodor."
 
   s.description  = <<-DESC
@@ -43,7 +43,7 @@ Pod::Spec.new do |s|
       ss.ios.source_files = 'Classes/Features/**/*.{h,m,mm,cpp,c}'
   end
 
-  s.subspec 'all' do |ss|
+  s.subspec 'All' do |ss|
       ss.dependency 'Hodor/Defines'
       ss.dependency 'Hodor/NS-Category'
       ss.dependency 'Hodor/UI-Category'
