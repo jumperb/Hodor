@@ -8,7 +8,6 @@
 
 #import "NSString+ext.h"
 #import <CommonCrypto/CommonDigest.h>
-#import "HDefines.h"
 
 @implementation NSString (ext)
 
@@ -96,31 +95,12 @@
 
 - (CGSize)hSizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size
 {
-    if (IS_IOS7_OR_HIGHER)
-    {
-        return [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
-    }
-    else
-    {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated"
-        return [self sizeWithFont:font constrainedToSize:size];
-#pragma clang diagnostic pop
-    }
+    return [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
+
 }
 - (CGSize)hSizeWithFont:(UIFont *)font
 {
-    if (IS_IOS7_OR_HIGHER)
-    {
-        return [self sizeWithAttributes:@{NSFontAttributeName:font}];
-    }
-    else
-    {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated"
-        return [self sizeWithFont:font];
-#pragma clang diagnostic pop
-    }
+    return [self sizeWithAttributes:@{NSFontAttributeName:font}];
 }
 
 //判断是否有emoji
