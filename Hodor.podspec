@@ -24,6 +24,8 @@ Pod::Spec.new do |s|
   
   s.ios.deployment_target = '7.0'
 
+  s.default_subspec = 'All'
+
   s.subspec 'Defines' do |ss|
       ss.ios.source_files = 'Classes/Defines/*.{h,m,mm,cpp,c}'
   end
@@ -39,5 +41,13 @@ Pod::Spec.new do |s|
   s.subspec 'Feature' do |ss|
       ss.dependency 'Hodor/NS-Category'
       ss.ios.source_files = 'Classes/Features/**/*.{h,m,mm,cpp,c}'
+  end
+
+  s.subspec 'all' do |ss|
+      ss.dependency 'Hodor/Defines'
+      ss.dependency 'Hodor/NS-Category'
+      ss.dependency 'Hodor/UI-Category'
+      ss.dependency 'Hodor/Feature'
+      ss.ios.source_files = 'Classes/*.{h,m,mm,cpp,c}'
   end
 end
