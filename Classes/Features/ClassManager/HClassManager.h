@@ -12,14 +12,12 @@
 #define HReg(key) \
 + (void)load\
 {\
-    [super load];\
     [HClassManager registerClass:self forkey:key];\
 }
 //class register : register some class on key with userinfo
 #define HReg2(key,userinfo) \
 + (void)load\
 {\
-[super load];\
 [HClassManager registerClass:self forkey:key userInfo:userinfo];\
 }
 
@@ -28,7 +26,6 @@
 #define HReg3(key1, ...)\
 + (void)load\
 {\
-    [super load];\
     NSArray *items = @[key1, __VA_ARGS__];\
     for (id item in items)\
     {\
@@ -47,14 +44,12 @@
 #define HRegForProtocal(pro)\
 + (void)load\
 {\
-[super load];\
 [HClassManager registerClass:self forProtocal:@protocol(pro)];\
 }
 
 #define HRegForProtocalAsSingleton(pro, singletonMethod)\
 + (void)load\
 {\
-[super load];\
 [HClassManager registerClass:self forProtocal:@protocol(pro) creator:singletonMethod];\
 }
 
