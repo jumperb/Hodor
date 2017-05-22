@@ -27,77 +27,25 @@
 + (UIImage *)imageWithColor:(UIColor *)color cornerRadius:(CGFloat)cornerRadius;
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size cornerRadius:(CGFloat)cornerRadius;
 
-/**
- *  gen round image
- *  @param radius
- *  @return
- */
+
 - (UIImage *)roundImageForRadius:(float)radius;
 
-/**
- *  gen circle image and has border
- *
- *  @param radius
- *  @param borderColor
- *  @param borderWidth
- *
- *  @return
- */
 - (UIImage *)roundImageForRadius:(float)radius borderColor:(UIColor *)borderColor borderWidth:(float)borderWidth;
 
-/**
- *  gen square thumbnail image
- *
- *  @param width
- *
- *  @return
- */
 - (UIImage *)thumbnailWithWidth:(float)width;
-/**
- *  gen square thumbnail image
- *
- *  width = screen width / 4
- *
- *  @return
- */
+
+//width = screen width / 4
 - (UIImage *)thumbnail;
-/**
- *  scale image
- *
- *  @param scaleValue
- *
- *  @return
- */
+
 - (UIImage *)scaleTo:(float)scaleValue;
 
-/**
- *  blur image use Core Image
- *
- *  @param blur 0~1
- *
- *  @return
- */
+//blur 0~1
 - (UIImage *)blurImage:(CGFloat)blur;
 
-/**
- *  blur image use Accelerate
- *
- *  @param blur      0~1
- *  @param tintColor blend color
- *
- *  @return
- */
+//blur 0~1
 - (UIImage *)blurImage:(CGFloat)blur tintColor:(UIColor*)tintColor;
 
-/**
- *  blur image use Accelerate
- *
- *  @param blur      0~1
- *  @param tintColor blend color
- *  @param count
- *
- *  @return
- */
+//blur 0~1
 - (UIImage *)blurImage:(CGFloat)blur tintColor:(UIColor*)tintColor count:(int)count;
 
 @end

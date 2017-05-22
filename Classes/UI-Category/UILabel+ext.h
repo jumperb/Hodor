@@ -17,7 +17,7 @@
  *  @param text
  *  @param lineSpace
  */
-- (void)setText:(NSString *)text lineSpace:(CGFloat)lineSpace;
+- (void)hSetText:(NSString *)text lineSpace:(CGFloat)lineSpace;
 
 /**
  *  compute height of a text with line height
@@ -29,5 +29,5 @@
  *
  *  @return
  */
-+ (CGFloat)getTextHeightWith:(NSString *)text font:(UIFont *)font lineSpace:(CGFloat)lineSpace width:(CGFloat)width;
++ (CGFloat)hGetTextHeightWith:(NSString *)text font:(UIFont *)font lineSpace:(CGFloat)lineSpace width:(CGFloat)width;
 @end

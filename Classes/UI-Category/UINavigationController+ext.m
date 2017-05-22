@@ -29,7 +29,7 @@
 }
 
 
-- (void)replaceTopViewController:(UIViewController *)vc animated:(BOOL)animated
+- (void)hReplaceTopViewController:(UIViewController *)vc animated:(BOOL)animated
 {
     NSMutableArray *vcs = [NSMutableArray arrayWithArray:self.viewControllers];
     if (vcs.count > 0)

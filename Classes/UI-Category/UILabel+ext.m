@@ -18,7 +18,7 @@
 }
 
 
-- (void)setText:(NSString *)text lineSpace:(CGFloat)lineSpace
+- (void)hSetText:(NSString *)text lineSpace:(CGFloat)lineSpace
 {
     NSMutableAttributedString *attributedString = [UILabel getAttributedStringWithText:text font:self.font lineSpace:lineSpace];
     if(attributedString == nil)
@@ -34,7 +34,7 @@
     self.frame = frame;
 }
 
-+ (CGFloat)getTextHeightWith:(NSString *)text font:(UIFont *)font lineSpace:(CGFloat)lineSpace width:(CGFloat)width
++ (CGFloat)hGetTextHeightWith:(NSString *)text font:(UIFont *)font lineSpace:(CGFloat)lineSpace width:(CGFloat)width
 {
     NSMutableAttributedString *attributedString = [UILabel getAttributedStringWithText:text font:font lineSpace:lineSpace];
     if(attributedString == nil)

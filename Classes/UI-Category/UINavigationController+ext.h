@@ -26,6 +26,6 @@
  *  @param animated animated
  *
  */
-- (void)replaceTopViewController:(UIViewController *)vc animated:(BOOL)animated;
+- (void)hReplaceTopViewController:(UIViewController *)vc animated:(BOOL)animated;
 
 @end
