@@ -44,7 +44,7 @@
 
 - (void)removeAllSubViews;
 
-#else
+#endif
 
 
 @property (nonatomic) CGFloat h_x;
@@ -74,7 +74,7 @@
 
 - (void)h_removeAllSubViews;
 
-#endif
+
 @end
 
 

@@ -165,9 +165,9 @@ static const void *userInfoAddress = &userInfoAddress;
         [subView removeFromSuperview];
     }
 }
+#endif
 
 
-#else
 @dynamic h_x;
 @dynamic h_y;
 @dynamic h_width;
@@ -315,5 +315,5 @@ static const void *userInfoAddress = &userInfoAddress;
         [subView removeFromSuperview];
     }
 }
-#endif
+
 @end
