@@ -1,4 +1,4 @@
-#Hodor
+# Hodor
 
 This library provides some unversal features and a group of categories for UIKit and Foundation. all the categories and features are very usefull and universal, but every one is too small , so we put them together.
 it provides:  
@@ -7,8 +7,8 @@ it provides:
 * extend GCD features  
 * basical categories 
 
-#How to use
-##How to use HClassManager
+# How to use
+## How to use HClassManager
 
 sometimes you want to get all the `sub class of a baseClass`, or you want to get all the `imp class of a protocal`. try this !
 
@@ -65,9 +65,10 @@ and there are some other register/get function for protocal specially
 define HRegForProtocal(pro)
 + (id)getObjectOfProtocal:(Protocol *)protocal;
 ```
+if you want to construct your project by IOC/DI principle ,try "HRegForProtocal()" and "-[NSObject dependenceInset]"  
+Just need two lines of code  
 
-
-##How to use annotation category
+## How to use annotation category
 if you want to set some special attributes to your property of some class. like  
 @property (nonatomic, `customkey`) NSString *str;  
 and you want to do something according to this customkey.
@@ -135,7 +136,7 @@ while (theClass != [NSObject class]) {
 }
 ```
 
-##How to use extend invoke feature
+## How to use extend invoke feature
 Is your appDelegate very very large? and you want to put these code to a coherenct place. if you have an object , you can use notification to meet the requirement. but if you don't has a object, how ?
 
 you can try use this solution: "extend invoke". it can dispatch invoke to your coherenct place.
@@ -177,7 +178,7 @@ then in another module write a category like this
 ```
 you can use it at all decentralize solutions.
 
-##Other categories
+## Other categories
 
 Just look at the code. there are some very intersting categories
 * `-[NSObject jsonString]` : everything (include your custom object) could be json encode  
@@ -190,7 +191,7 @@ Just look at the code. there are some very intersting categories
 * `UIView.userInfo` you can save some context info
 * `-[UIView removeAllSubViews]`
 
-##Other function and defines
+## Other function and defines
 * `syncAtQueue(dispatch_queue_t, ^)` a safe sync dispatch method. 
 * `universal block define`
 ```objective-c
