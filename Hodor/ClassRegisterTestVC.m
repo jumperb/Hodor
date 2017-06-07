@@ -16,6 +16,7 @@
     self = [super init];
     if (self) {
         self.title = @"Class Register";
+        
         [self addMenu:@"search all subClass" callback:^(id sender, id data) {
             [HClassManager scanClassForKey:ClassARegKey fetchblock:^(__unsafe_unretained Class aclass, id userInfo) {
                 NSLog(@"get sub class: %@, userInfo:%@", NSStringFromClass(aclass), userInfo);
@@ -23,6 +24,7 @@
         }];
         
         [self addMenu:@"search all protocal implement" callback:^(id sender, id data) {
+            //get a key of a protocol, if your protocal has only one imp, you can directly use "getObjectOfProtocal" or "HProtocalInstance"
             NSString *key = HProtocalRegKey(XProtocol);
             [HClassManager scanClassNameForKey:key fetchblock:^(NSString *aclassName, id userInfo) {
                 NSLog(@"get implement class: %@, userInfo:%@", aclassName, userInfo);
@@ -59,10 +61,12 @@
 @end
 
 @implementation ClassA
+//tell HClassManager Im a IMP of WProtocol
 HRegForProtocal(WProtocal)
 @end
 
 @implementation ClassB
+//tell HClassManager Im a sub class of ClassA, and im a IMP of  XProtocol, then I has some other property
 HReg3(ClassARegKey, HProtocalRegKey(XProtocol), HRegInfo(@"somekey", @"userinfo"))
 @end
 
@@ -76,14 +80,13 @@ HRegForProtocal(XProtocol)
 
 
 @implementation ClassE
-
+//tell HClassManager Im a IMP of YProtocol, and use "shareInstance" to get an object
 HRegForProtocalAsSingleton(YProtocol, @"shareInstance")
 
 + (instancetype)shareInstance
 {
     static dispatch_once_t pred;
     static ClassE *o = nil;
-
     dispatch_once(&pred, ^{ o = [[self alloc] init]; });
     return o;
 }
