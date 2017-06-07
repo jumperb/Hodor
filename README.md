@@ -15,37 +15,40 @@ sometimes you want to get all the `sub class of a baseClass`, or you want to get
 first you need register a class to a key
 
 ```objective-c   
-#define TestProRegKey @"TestProRegKey"
+@implementation ClassA
+HRegForProtocal(WProtocal)
+@end
 
-@protocol TestPro <NSObject>
+@implementation ClassB
+HReg3(ClassARegKey, HProtocalRegKey(XProtocol), HRegInfo(@"somekey", @"userinfo"))
+@end
+
+@implementation ClassC
+HReg2(ClassARegKey, @{@"attr":@"value"})
+@end
+
+@implementation ClassD
+HRegForProtocal(XProtocol)
 @end
 
 
-#define AClassRegKey @"AClassRegKey"
-@interface A : NSObject
-@end
+@implementation ClassE
 
-@interface B : A
-@end
+HRegForProtocalAsSingleton(YProtocol, @"shareInstance")
 
-@interface C : A
-@end
++ (instancetype)shareInstance
+{
+    static dispatch_once_t pred;
+    static ClassE *o = nil;
 
-@interface D : A
-@end
+    dispatch_once(&pred, ^{ o = [[self alloc] init]; });
+    return o;
+}
 
-
-
-@implementation B
-HReg3(AClassRegKey, HRegInfo(TestProRegKey, @"some attr"))
-@end
-
-@implementation C
-HReg2(AClassRegKey, @{@"attr":@"value"})
-@end
-
-@implementation D
-HReg(TestProRegKey)
+- (void)testFun
+{
+    NSLog(@"testFun");
+}
 @end
 
 ```
@@ -53,12 +56,22 @@ HReg(TestProRegKey)
 then you can find it anywhere like this  
 ```objective-c  
 
-[HClassManager scanClassForKey:AClassRegKey fetchblock:^(__unsafe_unretained Class aclass, id userInfo) {
-	NSLog(@"get sub class: %@, userInfo:%@", NSStringFromClass(aclass), userInfo);
+//search sub class
+[HClassManager scanClassForKey:ClassARegKey fetchblock:^(__unsafe_unretained Class aclass, id userInfo) {
+    NSLog(@"get sub class: %@, userInfo:%@", NSStringFromClass(aclass), userInfo);
 }];
-[HClassManager scanClassNameForKey:TestProRegKey fetchblock:^(NSString *aclassName, id userInfo) {
-	NSLog(@"get implement class: %@, userInfo:%@", aclassName, userInfo);
-}];            
+
+
+//search implement of protocal
+NSString *key = HProtocalRegKey(XProtocol);
+[HClassManager scanClassNameForKey:key fetchblock:^(NSString *aclassName, id userInfo) {
+    NSLog(@"get implement class: %@, userInfo:%@", aclassName, userInfo);
+}];
+
+
+//directly use protocal implment with dependence
+[HProtocalInstance(YProtocol) testFun];
+	
 ```
 and there are some other register/get function for protocal specially
 ```objective-c  
