@@ -16,10 +16,12 @@ first you need register a class to a key
 
 ```objective-c   
 @implementation ClassA
+//tell HClassManager Im a IMP of WProtocol
 HRegForProtocal(WProtocal)
 @end
 
 @implementation ClassB
+//tell HClassManager Im a sub class of ClassA, and im a IMP of  XProtocol, then I has some other property
 HReg3(ClassARegKey, HProtocalRegKey(XProtocol), HRegInfo(@"somekey", @"userinfo"))
 @end
 
@@ -33,14 +35,13 @@ HRegForProtocal(XProtocol)
 
 
 @implementation ClassE
-
+//tell HClassManager Im a IMP of YProtocol, and use "shareInstance" to get an object
 HRegForProtocalAsSingleton(YProtocol, @"shareInstance")
 
 + (instancetype)shareInstance
 {
     static dispatch_once_t pred;
     static ClassE *o = nil;
-
     dispatch_once(&pred, ^{ o = [[self alloc] init]; });
     return o;
 }
@@ -50,7 +51,6 @@ HRegForProtocalAsSingleton(YProtocol, @"shareInstance")
     NSLog(@"testFun");
 }
 @end
-
 ```
 
 then you can find it anywhere like this  
