@@ -1,4 +1,4 @@
-#Hodor
+# Hodor
 
 This library provides some unversal features and a group of categories for UIKit and Foundation. all the categories and features are very usefull and universal, but every one is too small , so we put them together.
 it provides:  
@@ -7,67 +7,81 @@ it provides:
 * extend GCD features  
 * basical categories 
 
-#How to use
-##How to use HClassManager
+# How to use
+## How to use HClassManager
 
 sometimes you want to get all the `sub class of a baseClass`, or you want to get all the `imp class of a protocal`. try this !
 
 first you need register a class to a key
 
 ```objective-c   
-#define TestProRegKey @"TestProRegKey"
+@implementation ClassA
+//tell HClassManager Im a IMP of WProtocol
+HRegForProtocal(WProtocal)
+@end
 
-@protocol TestPro <NSObject>
+@implementation ClassB
+//tell HClassManager Im a sub class of ClassA, and im a IMP of  XProtocol, then I has some other property
+HReg3(ClassARegKey, HProtocalRegKey(XProtocol), HRegInfo(@"somekey", @"userinfo"))
+@end
+
+@implementation ClassC
+HReg2(ClassARegKey, @{@"attr":@"value"})
+@end
+
+@implementation ClassD
+HRegForProtocal(XProtocol)
 @end
 
 
-#define AClassRegKey @"AClassRegKey"
-@interface A : NSObject
+@implementation ClassE
+//tell HClassManager Im a IMP of YProtocol, and use "shareInstance" to get an object
+HRegForProtocalAsSingleton(YProtocol, @"shareInstance")
+
++ (instancetype)shareInstance
+{
+    static dispatch_once_t pred;
+    static ClassE *o = nil;
+    dispatch_once(&pred, ^{ o = [[self alloc] init]; });
+    return o;
+}
+
+- (void)testFun
+{
+    NSLog(@"testFun");
+}
 @end
-
-@interface B : A
-@end
-
-@interface C : A
-@end
-
-@interface D : A
-@end
-
-
-
-@implementation B
-HReg3(AClassRegKey, HRegInfo(TestProRegKey, @"some attr"))
-@end
-
-@implementation C
-HReg2(AClassRegKey, @{@"attr":@"value"})
-@end
-
-@implementation D
-HReg(TestProRegKey)
-@end
-
 ```
 
 then you can find it anywhere like this  
 ```objective-c  
 
-[HClassManager scanClassForKey:AClassRegKey fetchblock:^(__unsafe_unretained Class aclass, id userInfo) {
-	NSLog(@"get sub class: %@, userInfo:%@", NSStringFromClass(aclass), userInfo);
+//search sub class
+[HClassManager scanClassForKey:ClassARegKey fetchblock:^(__unsafe_unretained Class aclass, id userInfo) {
+    NSLog(@"get sub class: %@, userInfo:%@", NSStringFromClass(aclass), userInfo);
 }];
-[HClassManager scanClassNameForKey:TestProRegKey fetchblock:^(NSString *aclassName, id userInfo) {
-	NSLog(@"get implement class: %@, userInfo:%@", aclassName, userInfo);
-}];            
+
+
+//search implement of protocal
+NSString *key = HProtocalRegKey(XProtocol);
+[HClassManager scanClassNameForKey:key fetchblock:^(NSString *aclassName, id userInfo) {
+    NSLog(@"get implement class: %@, userInfo:%@", aclassName, userInfo);
+}];
+
+
+//directly use protocal implment with dependence
+[HProtocalInstance(YProtocol) testFun];
+	
 ```
 and there are some other register/get function for protocal specially
 ```objective-c  
 define HRegForProtocal(pro)
 + (id)getObjectOfProtocal:(Protocol *)protocal;
 ```
+if you want to construct your project by IOC/DI principle ,try "HRegForProtocal()" and "-[NSObject dependenceInset]"  
+Just need two lines of code  
 
-
-##How to use annotation category
+## How to use annotation category
 if you want to set some special attributes to your property of some class. like  
 @property (nonatomic, `customkey`) NSString *str;  
 and you want to do something according to this customkey.
@@ -135,7 +149,7 @@ while (theClass != [NSObject class]) {
 }
 ```
 
-##How to use extend invoke feature
+## How to use extend invoke feature
 Is your appDelegate very very large? and you want to put these code to a coherenct place. if you have an object , you can use notification to meet the requirement. but if you don't has a object, how ?
 
 you can try use this solution: "extend invoke". it can dispatch invoke to your coherenct place.
@@ -177,7 +191,7 @@ then in another module write a category like this
 ```
 you can use it at all decentralize solutions.
 
-##Other categories
+## Other categories
 
 Just look at the code. there are some very intersting categories
 * `-[NSObject jsonString]` : everything (include your custom object) could be json encode  
@@ -190,7 +204,7 @@ Just look at the code. there are some very intersting categories
 * `UIView.userInfo` you can save some context info
 * `-[UIView removeAllSubViews]`
 
-##Other function and defines
+## Other function and defines
 * `syncAtQueue(dispatch_queue_t, ^)` a safe sync dispatch method. 
 * `universal block define`
 ```objective-c
