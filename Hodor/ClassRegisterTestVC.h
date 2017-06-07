@@ -12,33 +12,51 @@
 
 @end
 
+@protocol WProtocal <NSObject>
+@end
 
-#define TestProRegKey @"TestProRegKey"
-
-@protocol TestPro <NSObject>
+@protocol XProtocol <NSObject>
 
 @end
-@protocol TestPro2 <NSObject>
+@protocol YProtocol <NSObject>
 - (void)testFun;
 @end
 
-#define AClassRegKey @"AClassRegKey"
-@interface A : NSObject
+@protocol ZProtocal <NSObject>
 
 @end
 
-@interface B : A
+
+
+
+#define ClassARegKey @"AClassRegKey"
+@interface ClassA : NSObject <WProtocal>
 
 @end
 
-@interface C : A
+@interface ClassB : ClassA <XProtocol>
 
 @end
 
-@interface D : A
+@interface ClassC : ClassA
 
 @end
 
-@interface E : A <TestPro2>
+@interface ClassD : ClassA <XProtocol>
+
+@end
+
+@interface ClassE : ClassA <YProtocol>
 + (instancetype)shareInstance;
+@end
+
+@interface ClassF : NSObject <ZProtocal>
+@property (nonatomic) id<WProtocal> pw;
+@property (nonatomic) id<YProtocol> py;
+
+@end
+
+
+@interface ClassG : NSObject
+@property (nonatomic) id<ZProtocal> pz;
 @end

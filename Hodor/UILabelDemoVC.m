@@ -34,7 +34,7 @@ static NSString * const text = @"Tesla gained experience in telephony and electr
     self.label = [[UILabel alloc] initWithFrame:CGRectMake(10, 70, 260, 20)];
     _label.backgroundColor = [UIColor redColor];
     [self.view addSubview:_label];
-    [_label setText:text lineSpace:6];
+    [_label hSetText:text lineSpace:6];
     
     self.desc = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - 20, CGRectGetWidth(self.view.frame), 20)];
     [self.view addSubview:_desc];
@@ -67,9 +67,9 @@ static NSString * const text = @"Tesla gained experience in telephony and electr
         default:
             break;
     }
-    [_label setText:text lineSpace:space];
+    [_label hSetText:text lineSpace:space];
     
-    CGFloat cosHeight = [UILabel getTextHeightWith:text font:_label.font lineSpace:space width:_label.frame.size.width];
+    CGFloat cosHeight = [UILabel hGetTextHeightWith:text font:_label.font lineSpace:space width:_label.frame.size.width];
     NSString *descString = [NSString stringWithFormat:@"label height：%.0f, compute height:%.0f", _label.frame.size.height, cosHeight];
     self.desc.text = descString;
     self.lineSpaceLabel.text = [NSString stringWithFormat:@"line space：%0.f", space];

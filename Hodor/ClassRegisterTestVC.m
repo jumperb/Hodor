@@ -8,6 +8,7 @@
 
 #import "ClassRegisterTestVC.h"
 #import "HClassManager.h"
+#import "NSObject+ext.h"
 
 @implementation ClassRegisterTestVC
 - (instancetype)init
@@ -16,52 +17,72 @@
     if (self) {
         self.title = @"Class Register";
         [self addMenu:@"search all subClass" callback:^(id sender, id data) {
-            [HClassManager scanClassForKey:AClassRegKey fetchblock:^(__unsafe_unretained Class aclass, id userInfo) {
+            [HClassManager scanClassForKey:ClassARegKey fetchblock:^(__unsafe_unretained Class aclass, id userInfo) {
                 NSLog(@"get sub class: %@, userInfo:%@", NSStringFromClass(aclass), userInfo);
             }];
         }];
         
         [self addMenu:@"search all protocal implement" callback:^(id sender, id data) {
-            [HClassManager scanClassNameForKey:TestProRegKey fetchblock:^(NSString *aclassName, id userInfo) {
+            NSString *key = HProtocalRegKey(XProtocol);
+            [HClassManager scanClassNameForKey:key fetchblock:^(NSString *aclassName, id userInfo) {
                 NSLog(@"get implement class: %@, userInfo:%@", aclassName, userInfo);
             }];
         }];
 
         [self addMenu:@"search singleton implement" callback:^(id sender, id data) {
-            NSLog(@"direct invoke shareInstance : %@", [E shareInstance]);
-            NSLog(@"searched obj : %@", HProtocalInstance(TestPro2));
-            [HProtocalInstance(TestPro2) testFun];
+            NSLog(@"direct invoke shareInstance : %@", [ClassE shareInstance]);
+            NSLog(@"searched obj : %@", HProtocalInstance(YProtocol));
+            [HProtocalInstance(YProtocol) testFun];
+        }];
+        
+        [self addMenu:@"auto dependence inset" callback:^(id sender, id data) {
+            ClassG *gObj = [ClassG new];
+            
+            /*
+            ClassA *aObj = [ClassA new];
+            
+            ClassE *eObj = [ClassE new];
+            
+            ClassF *fObj = [ClassF new];
+            fObj.py = eObj;
+            fObj.pw = aObj;
+            
+            gObj.pz = fObj;
+            */
+            
+            [gObj dependenceInset]; //this function can replace the codes above
+            NSLog(@"%@", [gObj jsonString]);
         }];
     }
     return self;
 }
 @end
 
-@implementation A
-
+@implementation ClassA
+HRegForProtocal(WProtocal)
 @end
 
-@implementation B
-HReg3(AClassRegKey, HRegInfo(TestProRegKey, @"some attr"))
+@implementation ClassB
+HReg3(ClassARegKey, HProtocalRegKey(XProtocol), HRegInfo(@"somekey", @"userinfo"))
 @end
 
-@implementation C
-HReg2(AClassRegKey, @{@"attr":@"value"})
+@implementation ClassC
+HReg2(ClassARegKey, @{@"attr":@"value"})
 @end
 
-@implementation D
-HReg(TestProRegKey)
+@implementation ClassD
+HRegForProtocal(XProtocol)
 @end
 
 
-@implementation E
+@implementation ClassE
 
-HRegForProtocalAsSingleton(TestPro2, @"shareInstance")
+HRegForProtocalAsSingleton(YProtocol, @"shareInstance")
 
 + (instancetype)shareInstance
 {
     static dispatch_once_t pred;
-    static E *o = nil;
+    static ClassE *o = nil;
 
     dispatch_once(&pred, ^{ o = [[self alloc] init]; });
     return o;
@@ -71,4 +92,12 @@ HRegForProtocalAsSingleton(TestPro2, @"shareInstance")
 {
     NSLog(@"testFun");
 }
+@end
+
+
+@implementation ClassF
+HRegForProtocal(ZProtocal)
+@end
+
+@implementation ClassG
 @end

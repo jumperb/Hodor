@@ -107,7 +107,6 @@
 + (id)getObjectOfProtocal:(Protocol *)protocal
 {
     NSString *key = [NSString stringWithFormat:@"%@RegKey", NSStringFromProtocol(protocal)];
-
     __block NSString *className = nil;
     __block NSString *creator = nil;
 
@@ -203,4 +202,76 @@
 
 @implementation HClassContainner
 
+@end
+
+
+
+#import "NSObject+ext.h"
+#import <objc/runtime.h>
+
+@implementation NSObject (dependenceInset)
+
+- (void)dependenceInset
+{
+    [self hclassManager_scanProtocals:^(NSString *ppname, NSString *protocalString) {
+        Protocol *po = NSProtocolFromString(protocalString);
+        if (!po) return ;
+        
+        id obj = [HClassManager getObjectOfProtocal:po];
+        [obj dependenceInset];
+        if (!obj) return;
+        
+        [self setValue:obj forKey:ppname];
+    }];
+}
+typedef void (^HMScanProtocalCallback)(NSString *ppname, NSString *protocalString);
+- (void)hclassManager_scanProtocals:(HMScanProtocalCallback)scanProtocalCallback
+{
+    NSArray *pplist = [NSObject depPPListOfClass:self.class];
+    for (NSString *p in pplist)
+    {
+        //get properties
+        objc_property_t pp_t = class_getProperty(self.class, [p cStringUsingEncoding:NSUTF8StringEncoding]);
+        if (!pp_t)
+        {
+            NSAssert(NO, @"can not get property attr : %@",p);
+            continue;
+        }
+        const char* attr = property_getAttributes(pp_t);
+        //T@"Test",&,N,V_c"
+        //Ti,N,V_a
+        //T@"NSNumber<HEOptional>",&,N,V_z
+        //T@,&,N
+        
+        BOOL isObj = (attr[1] == '@');
+        NSString *protocalString = nil;
+        BOOL hasProtocal = NO;
+        char *leftJian = NULL;
+        char *rightJian = NULL;
+        
+        if (isObj)
+        {
+            leftJian = strstr(attr, "<");
+            rightJian = NULL;
+            if (leftJian != NULL)
+            {
+                
+                rightJian = strstr(attr, ">");
+                if (rightJian == NULL)
+                {
+                    NSAssert(NO, @"property attr format error : %@",p);
+                    continue;
+                }
+                hasProtocal = YES;
+            }
+            
+            NSString *attrString = [NSString stringWithCString:attr encoding:NSUTF8StringEncoding];
+            if (hasProtocal)
+            {
+                protocalString = [attrString substringWithRange:NSMakeRange(leftJian - attr + 1, rightJian - leftJian - 1)];
+                scanProtocalCallback(p, protocalString);
+            }
+        }
+    }
+}
 @end

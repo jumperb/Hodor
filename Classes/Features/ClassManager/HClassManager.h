@@ -53,6 +53,7 @@
 [HClassManager registerClass:self forProtocal:@protocol(pro) creator:singletonMethod];\
 }
 
+#define HProtocalRegKey(pro) ([NSString stringWithFormat:@"%@RegKey", NSStringFromProtocol(@protocol(pro))])
 
 #define HProtocalInstance(pro) ((id<pro>)[HClassManager getObjectOfProtocal:@protocol(pro)])
 
@@ -90,4 +91,10 @@ typedef void (^HClassNameFetchBlock)(NSString *aclassName, id userInfo);
 @property (nonatomic, strong) NSString *containClassName;
 @property (nonatomic, strong) id userInfo;
 @property (nonatomic, strong) id H_Reg;
+@end
+
+
+
+@interface NSObject (dependenceInset)
+- (void)dependenceInset;
 @end
