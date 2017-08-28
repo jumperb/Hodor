@@ -176,7 +176,11 @@
     NSString * clsStr = [clsArr[0] substringFromIndex:2];
     NSString * methodString = clsArr[1];
     NSString * methodName = [clsArr[1] substringToIndex:methodString.length-1];
-    
+    NSUInteger kuohaoLocation = [clsStr rangeOfString:@"("].location;
+    if (kuohaoLocation != NSNotFound)
+    {
+        clsStr = [clsStr substringToIndex:kuohaoLocation];
+    }
     Class cls = NSClassFromString(clsStr);
     if (isClassMethod)
     {
