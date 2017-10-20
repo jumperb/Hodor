@@ -13,6 +13,10 @@
 #define IS_IOS7_OR_HIGHER  ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
 #define IS_IOS8_OR_HIGHER  ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 #define IS_IOS9_OR_HIGHER  ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
+#define IS_IOS10_OR_HIGHER  ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)
+#define IS_IOS11_OR_HIGHER  ([[[UIDevice currentDevice] systemVersion] floatValue] >= 11.0)
+#define IS_IOS12_OR_HIGHER  ([[[UIDevice currentDevice] systemVersion] floatValue] >= 12.0)
+#define IS_IOS13_OR_HIGHER  ([[[UIDevice currentDevice] systemVersion] floatValue] >= 13.0)
 #define IS_568h  ([UIScreen mainScreen].bounds.size.height > 567)
 
 
