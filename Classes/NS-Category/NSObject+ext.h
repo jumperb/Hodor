@@ -50,6 +50,7 @@ if (![arg isKindOfClass:[_class class]])\
 // serialization
 // the return is always dictionary
 - (id)serialization;
++ (BOOL)isSerializationObject:(id)object;
 
 // property list
 - (NSArray *)ppList;
