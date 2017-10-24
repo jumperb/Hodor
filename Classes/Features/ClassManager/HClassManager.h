@@ -23,6 +23,8 @@
 
 #define HRegInfo(key, userInfo) @{@"key":key, @"userInfo":userInfo}
 
+#define HGotoRegInfo(key,...) HRegInfo(@"HGOTO_NODE_REG_PREFIX_"key, (@[__VA_ARGS__]))
+
 #define HReg3(key1, ...)\
 + (void)load\
 {\
