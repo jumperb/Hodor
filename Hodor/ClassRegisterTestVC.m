@@ -9,6 +9,8 @@
 #import "ClassRegisterTestVC.h"
 #import "HClassManager.h"
 #import "NSObject+ext.h"
+#import "HDefines.h"
+
 
 @implementation ClassRegisterTestVC
 - (instancetype)init
@@ -16,7 +18,6 @@
     self = [super init];
     if (self) {
         self.title = @"Class Register";
-        
         [self addMenu:@"search all subClass" callback:^(id sender, id data) {
             [HClassManager scanClassForKey:ClassARegKey fetchblock:^(__unsafe_unretained Class aclass, id userInfo) {
                 NSLog(@"get sub class: %@, userInfo:%@", NSStringFromClass(aclass), userInfo);

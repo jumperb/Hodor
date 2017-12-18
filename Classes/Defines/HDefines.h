@@ -28,9 +28,8 @@
 //redefine 'NSLog'
 #ifndef NSLog
 #if defined(DEBUG)
-#define NSLog(format, ...) do {\
-(NSLog)((format), ##__VA_ARGS__);\
-} while (0)
+#define NSLog(FORMAT, ...) fprintf(stderr,"%.0f-[%s:%d]\t%s\n", [NSDate date].timeIntervalSince1970 * 1000, [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])
+
 #else
 #define NSLog(format, ...) do{}while(0)
 #endif
