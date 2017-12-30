@@ -18,7 +18,7 @@
 #define IS_IOS12_OR_HIGHER  ([[[UIDevice currentDevice] systemVersion] floatValue] >= 12.0)
 #define IS_IOS13_OR_HIGHER  ([[[UIDevice currentDevice] systemVersion] floatValue] >= 13.0)
 #define IS_568h  ([UIScreen mainScreen].bounds.size.height > 567)
-
+#define IS_IPHONEX ([UIScreen mainScreen].bounds.size.width == 375.f && [UIScreen mainScreen].bounds.size.height == 812.f ? YES : NO)
 
 // If project include PGL-Core, then use PGL-Core to handle NSAssert for online Assertion Logging
 #if __has_include("PGL-Core.h") || __has_include(<PGL-Core.h>) || __has_include(<PGL-Core/PGL-Core.h>)
