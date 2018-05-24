@@ -25,6 +25,12 @@
             case 1:
                 format = @"yyyy-MM-dd";
                 break;
+            case 3:
+                format = @"MM-dd";
+                break;
+            case 4:
+                format = @"yyyy-MM-dd HH:mm:ss SSS";
+                break;
             default:
                 format = @"yyyy-MM-dd HH:mm:ss";
                 break;
@@ -54,6 +60,9 @@
             break;
         case 3:
             format = @"MM-dd";
+            break;
+        case 4:
+            format = @"yyyy-MM-dd HH:mm:ss+SSS";
             break;
         default:
             format = @"yyyy-MM-dd HH:mm:ss";

@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 Pinguo. All rights reserved.
 //
 
+
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define ID_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 #define IS_IOS5_OR_HIGHER  ([[[UIDevice currentDevice] systemVersion] floatValue] >= 5.0)
@@ -28,7 +29,8 @@
 //redefine 'NSLog'
 #ifndef NSLog
 #if defined(DEBUG)
-#define NSLog(FORMAT, ...) fprintf(stderr,"%.0f-[%s:%d]\t%s\n", [NSDate date].timeIntervalSince1970 * 1000, [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])
+#import "NSDate+ext.h"
+#define NSLog(FORMAT, ...) fprintf(stderr,"%s - [%s:%d]\t%s\n", [[NSDate date] displayDescWithStyle:4].UTF8String, [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])
 
 #else
 #define NSLog(format, ...) do{}while(0)
