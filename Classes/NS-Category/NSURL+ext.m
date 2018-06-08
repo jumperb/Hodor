@@ -11,11 +11,10 @@
 
 @implementation NSURL (ext)
 
-- (NSDictionary *)parameterMap
+- (NSDictionary *)queryMap
 {
-    NSString *paramsString = self.parameterString;
     NSMutableDictionary *dict = [NSMutableDictionary new];
-    NSArray *segments = [paramsString componentsSeparatedByString:@"&"];
+    NSArray *segments = [self.query componentsSeparatedByString:@"&"];
     for(NSString *segment in segments)
     {
         NSArray *kv = [segment componentsSeparatedByString:@"="];
