@@ -25,7 +25,7 @@
 #import "NSData+ext.h"
 #import "NSDate+ext.h"
 #import "NSFileManager+ext.h"
-
+#import "NSURL+ext.h"
 
 #import "HGCDext.h"
 #import "UIView+ext.h"

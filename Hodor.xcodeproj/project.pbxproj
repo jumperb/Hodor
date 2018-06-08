@@ -21,6 +21,7 @@
 		00CB563D1C33B17F00380F74 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00CB563C1C33B17F00380F74 /* bg.jpg */; };
 		00FF4FF91C74C19700D42303 /* NSObject+annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FF4FF81C74C19700D42303 /* NSObject+annotation.m */; };
 		00FF4FFC1C74C52A00D42303 /* NSObjectAnnotationTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FF4FFB1C74C52A00D42303 /* NSObjectAnnotationTestVC.m */; };
+		152A1EB520CA682E00E6DA62 /* NSURL+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 152A1EB420CA682E00E6DA62 /* NSURL+ext.m */; };
 		156917221EBB1E9F00388AD2 /* NSArray+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 156916FC1EBB1E9F00388AD2 /* NSArray+ext.m */; };
 		156917231EBB1E9F00388AD2 /* NSData+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 156916FE1EBB1E9F00388AD2 /* NSData+ext.m */; };
 		156917241EBB1E9F00388AD2 /* NSDate+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 156917001EBB1E9F00388AD2 /* NSDate+ext.m */; };
@@ -81,6 +82,8 @@
 		00FF4FF81C74C19700D42303 /* NSObject+annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+annotation.m"; sourceTree = "<group>"; };
 		00FF4FFA1C74C52A00D42303 /* NSObjectAnnotationTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObjectAnnotationTestVC.h; sourceTree = "<group>"; };
 		00FF4FFB1C74C52A00D42303 /* NSObjectAnnotationTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObjectAnnotationTestVC.m; sourceTree = "<group>"; };
+		152A1EB320CA682E00E6DA62 /* NSURL+ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURL+ext.h"; sourceTree = "<group>"; };
+		152A1EB420CA682E00E6DA62 /* NSURL+ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ext.m"; sourceTree = "<group>"; };
 		156916FB1EBB1E9F00388AD2 /* NSArray+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ext.h"; sourceTree = "<group>"; };
 		156916FC1EBB1E9F00388AD2 /* NSArray+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ext.m"; sourceTree = "<group>"; };
 		156916FD1EBB1E9F00388AD2 /* NSData+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ext.h"; sourceTree = "<group>"; };
@@ -306,6 +309,8 @@
 				1569170C1EBB1E9F00388AD2 /* NSObject+ext.m */,
 				1569170D1EBB1E9F00388AD2 /* NSString+ext.h */,
 				1569170E1EBB1E9F00388AD2 /* NSString+ext.m */,
+				152A1EB320CA682E00E6DA62 /* NSURL+ext.h */,
+				152A1EB420CA682E00E6DA62 /* NSURL+ext.m */,
 			);
 			path = "NS-Category";
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				152A1EB520CA682E00E6DA62 /* NSURL+ext.m in Sources */,
 				156917491EBB201000388AD2 /* UIApplication+ext.m in Sources */,
 				1569174F1EBB201000388AD2 /* UIScreen+ext.m in Sources */,
 				1569174C1EBB201000388AD2 /* UIImage+ext.m in Sources */,
