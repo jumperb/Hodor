@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSURL (ext)
-- (NSDictionary *)queryMap;
+
+- (NSDictionary *)parameterMap;
+
 @end

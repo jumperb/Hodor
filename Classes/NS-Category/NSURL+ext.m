@@ -11,7 +11,7 @@
 
 @implementation NSURL (ext)
 
-- (NSDictionary *)queryMap
+- (NSDictionary *)parameterMap
 {
     NSMutableDictionary *dict = [NSMutableDictionary new];
     NSArray *segments = [self.query componentsSeparatedByString:@"&"];
