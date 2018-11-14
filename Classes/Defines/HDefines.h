@@ -20,7 +20,7 @@
 #define IS_IOS13_OR_HIGHER  ([[[UIDevice currentDevice] systemVersion] floatValue] >= 13.0)
 #define IS_568h  ([UIScreen mainScreen].bounds.size.height > 567)
 
-#define IPHONE_X \
+#define IS_IPHONEX \
 ({BOOL isPhoneX = NO;\
 if (@available(iOS 11.0, *)) {\
 isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
