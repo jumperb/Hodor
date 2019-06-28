@@ -55,7 +55,22 @@
             }
             else if([obj isKindOfClass:[NSNumber class]])
             {
-                [str appendFormat:@"\"%@\":%d",key,[obj intValue]];
+                if (strcmp([obj objCType], @encode(float)) == 0)
+                {
+                    [str appendFormat:@"\"%@\":%f",key,[obj floatValue]];
+                }
+                else if (strcmp([obj objCType], @encode(double)) == 0)
+                {
+                    [str appendFormat:@"\"%@\":%f",key,[obj doubleValue]];
+                }
+                else if (strcmp([obj objCType], @encode(long)) == 0)
+                {
+                    [str appendFormat:@"\"%@\":%ld",key,[obj longValue]];
+                }
+                else
+                {
+                    [str appendFormat:@"\"%@\":%d",key,[obj intValue]];
+                }
             }
             else if([obj isKindOfClass:[NSArray class]] || [obj isKindOfClass:[NSDictionary class]])
             {
