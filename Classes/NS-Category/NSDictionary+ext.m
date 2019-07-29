@@ -21,7 +21,7 @@
     {
         NSError *error = nil;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self
-                                                           options:NSJSONWritingPrettyPrinted
+                                                           options:0
                                                              error:&error];
 
         if ([jsonData length] > 0 && error == nil)
@@ -45,7 +45,7 @@
             {
                 NSError *error = nil;
                 NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj
-                                                                   options:NSJSONWritingPrettyPrinted
+                                                                   options:0
                                                                      error:&error];
                 [str appendFormat:@"\"%@\":%@",key,[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]];
             }
