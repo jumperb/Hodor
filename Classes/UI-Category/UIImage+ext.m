@@ -160,7 +160,6 @@ static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
 
 - (UIImage *)blurImage:(CGFloat)blur
 {
-    if ([UIApplication sharedApplication].applicationState != UIApplicationStateActive) return nil;
 #if TARGET_IPHONE_SIMULATOR
     CIContext *context = [CIContext hodorImageContextForSimulator];
 #else
