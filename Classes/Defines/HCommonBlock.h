@@ -13,7 +13,7 @@
 
 // universal block define
 
-typedef void (^min_callback)();
+typedef void (^min_callback)(void);
 
 typedef void (^callback)(id sender, id data);
 
