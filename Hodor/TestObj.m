@@ -23,3 +23,6 @@
     NSLog(@"B Dealloc");
 }
 @end
+
+@implementation CClass
+@end

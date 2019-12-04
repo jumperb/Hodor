@@ -25,7 +25,13 @@
         [self addMenu:@"extend dispatch invoke" callback:^(id sender, id data) {
             NSLog(@"see -[appDelegate:didFinishLaunchingWithOptions:],  the invoke has dispatch to some modules");
         }];
-        
+        [self addMenu:@"serialization test" callback:^(id sender, id data) {
+            CClass *c = [CClass new];
+            c.pBool = YES;
+            c.pStr = @"ccc";
+            c.pNumber = @(5);
+            NSLog(@"%@", [[NSURL new] serialization]);
+        }];
         [self addMenu:@"@weakify test" callback:^(id sender, id data) {
             AClass *a  = [AClass new];
             BClass *b = [BClass new];

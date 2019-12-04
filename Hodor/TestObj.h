@@ -16,3 +16,9 @@
 @interface BClass : NSObject
 @property (nonatomic) AClass *a;
 @end
+
+@interface CClass : NSObject
+@property (nonatomic) NSString *pStr;
+@property (nonatomic) BOOL pBool;
+@property (nonatomic) NSNumber *pNumber;
+@end
