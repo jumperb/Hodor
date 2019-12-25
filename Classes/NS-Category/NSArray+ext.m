@@ -20,7 +20,25 @@
 // {
 //    return [NSNull null];
 // }
-
+- (id)serialization
+{
+    NSMutableArray *arr = [[NSMutableArray alloc] init];
+    for (id value in self)
+    {
+        if (value && value != [NSNull null])
+        {
+            if([NSObject isSerializationObject:value])
+            {
+                [arr addObject:value];
+            }
+            else
+            {
+                [arr addObject:[value serialization]];
+            }
+        }
+    }
+    return arr;
+}
 - (NSString *)jsonString
 {
     if([NSJSONSerialization isValidJSONObject:self])

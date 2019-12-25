@@ -84,15 +84,7 @@
     else if([object isKindOfClass:[NSNumber class]])
     {
         return YES;
-    }
-    else if([object isKindOfClass:[NSArray class]])
-    {
-        return YES;
-    }
-    else if([object isKindOfClass:[NSDictionary class]])
-    {
-        return YES;
-    }
+    }    
     else if([object isKindOfClass:[NSNull class]])
     {
         return YES;

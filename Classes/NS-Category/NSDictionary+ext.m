@@ -14,7 +14,26 @@
 {
     return nil;
 }
-
+- (id)serialization
+{
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    for (NSString *key in self)
+    {
+        id value = [self objectForKey:key];
+        if (value && value != [NSNull null])
+        {
+            if([NSObject isSerializationObject:value])
+            {
+                [dict setValue:value forKey:key];
+            }
+            else
+            {
+                [dict setValue:[value serialization] forKey:key];
+            }
+        }
+    }
+    return dict;
+}
 - (NSString *)jsonString
 {
     if([NSJSONSerialization isValidJSONObject:self])

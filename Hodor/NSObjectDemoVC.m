@@ -30,8 +30,21 @@
             c.pBool = YES;
             c.pStr = @"ccc";
             c.pNumber = @(5);
+            NSLog(@"%@", [c serialization]);
+        }];
+        
+        [self addMenu:@"serialization test2 NSURL" callback:^(id sender, id data) {
             NSLog(@"%@", [[NSURL new] serialization]);
         }];
+        
+        [self addMenu:@"json string test" callback:^(id sender, id data) {
+            CClass *c = [CClass new];
+            c.pBool = YES;
+            c.pStr = @"cc%c\",123)";
+            c.pNumber = @(5);
+            NSLog(@"%@", [c jsonString]);
+        }];
+        
         [self addMenu:@"@weakify test" callback:^(id sender, id data) {
             AClass *a  = [AClass new];
             BClass *b = [BClass new];
