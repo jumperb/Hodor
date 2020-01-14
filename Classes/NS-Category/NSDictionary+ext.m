@@ -8,6 +8,7 @@
 
 #import "NSDictionary+ext.h"
 #import "NSObject+ext.h"
+#import "NSString+ext.h"
 
 @implementation NSDictionary (ext)
 - (id)objectAtIndex:(NSUInteger)idx
@@ -24,11 +25,11 @@
         {
             if([NSObject isSerializationObject:value])
             {
-                [dict setValue:value forKey:key];
+                [dict setValue:value forKey:[key stringValue]];
             }
             else
             {
-                [dict setValue:[value serialization] forKey:key];
+                [dict setValue:[value serialization] forKey:[key stringValue]];
             }
         }
     }
@@ -54,57 +55,14 @@
     }
     else
     {
-        NSMutableString *str = [[NSMutableString alloc] init];
-        [str appendString:@"{"];
-        int index = 0;
-        for(id key in self)
-        {
-            id obj = [self objectForKey:key];
-            if([NSJSONSerialization isValidJSONObject:obj])
-            {
-                NSError *error = nil;
-                NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj
-                                                                   options:0
-                                                                     error:&error];
-                [str appendFormat:@"\"%@\":%@",key,[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]];
-            }
-            else if([obj isKindOfClass:[NSString class]])
-            {
-                [str appendFormat:@"\"%@\":\"%@\"",key,obj];
-            }
-            else if([obj isKindOfClass:[NSNumber class]])
-            {
-                if (strcmp([obj objCType], @encode(float)) == 0)
-                {
-                    [str appendFormat:@"\"%@\":%f",key,[obj floatValue]];
-                }
-                else if (strcmp([obj objCType], @encode(double)) == 0)
-                {
-                    [str appendFormat:@"\"%@\":%f",key,[obj doubleValue]];
-                }
-                else if (strcmp([obj objCType], @encode(long)) == 0)
-                {
-                    [str appendFormat:@"\"%@\":%ld",key,[obj longValue]];
-                }
-                else
-                {
-                    [str appendFormat:@"\"%@\":%d",key,[obj intValue]];
-                }
-            }
-            else if([obj isKindOfClass:[NSArray class]] || [obj isKindOfClass:[NSDictionary class]])
-            {
-                [str appendFormat:@"\"%@\":%@",key,[obj jsonString]];
-            }
-            else if([obj isKindOfClass:[NSData class]])
-            {
-                //ignore
-            }
-            else [str appendFormat:@"\"%@\":%@",key,[[[self objectForKey:key] serialization] jsonString]];
-            if(index != self.count - 1)[str appendString:@","];
-            index ++;
+        NSDictionary *dict2 = [self serialization];
+        if([NSJSONSerialization isValidJSONObject:dict2]) {
+            return [dict2 jsonString];
         }
-        [str appendString:@"}"];
-        return str;
+        else {
+            NSAssert(NO, @"json encode fail");
+            return nil;
+        }
     }
 }
 @end

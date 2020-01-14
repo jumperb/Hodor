@@ -59,41 +59,14 @@
     }
     else
     {
-        NSMutableString *str = [[NSMutableString alloc] init];
-        [str appendString:@"["];
-        int index = 0;
-        for(id obj in self)
-        {
-            if([NSJSONSerialization isValidJSONObject:obj])
-            {
-                NSError *error = nil;
-                NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj
-                                                                   options:0
-                                                                     error:&error];
-                [str appendString:[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]];
-            }
-            else if([obj isKindOfClass:[NSString class]])
-            {
-                [str appendFormat:@"\"%@\"",obj];
-            }
-            else if([obj isKindOfClass:[NSNumber class]])
-            {
-                [str appendFormat:@"%d",[obj intValue]];
-            }
-            else if([obj isKindOfClass:[NSArray class]] || [obj isKindOfClass:[NSDictionary class]])
-            {
-                [str appendString:[obj jsonString]];
-            }
-            else if([obj isKindOfClass:[NSData class]])
-            {
-                //ignore
-            }
-            else [str appendString:[[obj serialization] jsonString]];
-            if(index != self.count - 1)[str appendString:@","];
-            index ++;
+        NSArray *arr2 = [self serialization];
+        if([NSJSONSerialization isValidJSONObject:arr2]) {
+            return [arr2 jsonString];
         }
-        [str appendString:@"]"];
-        return str;
+        else {
+            NSAssert(NO, @"json encode fail");
+            return nil;
+        }
     }
 }
 @end

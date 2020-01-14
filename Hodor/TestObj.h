@@ -21,4 +21,5 @@
 @property (nonatomic) NSString *pStr;
 @property (nonatomic) BOOL pBool;
 @property (nonatomic) NSNumber *pNumber;
+@property (nonatomic) NSDictionary *dict;
 @end
