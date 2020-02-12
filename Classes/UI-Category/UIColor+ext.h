@@ -10,15 +10,15 @@
 
 @interface UIColor (ext)
 
-- (UIColor *)revertColor;
+- (UIColor *)h_revertColor;
 
 //formate : @"#f6ee34" or @"0x45fed2"
-+ (UIColor *)colorWithString:(NSString *)colorStr alpha:(float)alpha;
-+ (UIColor *)colorWithString:(NSString *)colorStr;
++ (UIColor *)h_colorWithString:(NSString *)colorStr alpha:(float)alpha;
++ (UIColor *)h_colorWithString:(NSString *)colorStr;
 
 //formate : 0x9875a3
-+ (UIColor *)colorWithHex:(int)hex alpha:(float)alpha;
-+ (UIColor *)colorWithHex:(int)hex;
++ (UIColor *)h_colorWithHex:(int)hex alpha:(float)alpha;
++ (UIColor *)h_colorWithHex:(int)hex;
 
-+ (UIColor *)random;
++ (UIColor *)h_random;
 @end

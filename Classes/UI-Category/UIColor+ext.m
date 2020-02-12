@@ -9,7 +9,7 @@
 #import "UIColor+ext.h"
 
 @implementation UIColor (ext)
-- (UIColor *)revertColor
+- (UIColor *)h_revertColor
 {
     CGColorSpaceModel colorSpaceModel = CGColorSpaceGetModel(CGColorGetColorSpace(self.CGColor));
     if (colorSpaceModel == kCGColorSpaceModelRGB)
@@ -20,7 +20,7 @@
     else return nil;
 }
 
-+ (UIColor *)colorWithString:(NSString *)colorStr
++ (UIColor *)h_colorWithString:(NSString *)colorStr
 {
     NSString *cString = [[colorStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     if ([cString length] < 6) return [UIColor clearColor];
@@ -57,7 +57,7 @@
                            alpha:((float) a / 255.0f)];
 }
 
-+ (UIColor *)colorWithString:(NSString *)colorStr alpha:(float)alpha
++ (UIColor *)h_colorWithString:(NSString *)colorStr alpha:(float)alpha
 {
     NSString *cString = [[colorStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     if ([cString length] < 6) return [UIColor clearColor];
@@ -86,19 +86,19 @@
                            alpha:alpha];
 }
 
-+ (UIColor *)colorWithHex:(int)hex
++ (UIColor *)h_colorWithHex:(int)hex
 {
-    return [self colorWithHex:hex alpha:1.0];
+    return [self h_colorWithHex:hex alpha:1.0];
 }
 
-+ (UIColor *)colorWithHex:(int)hex alpha:(float)alpha
++ (UIColor *)h_colorWithHex:(int)hex alpha:(float)alpha
 {
     float r = ((float)((hex & 0xff0000) >> 16))/255.0;
     float g = ((float)((hex & 0xff00) >> 8))/255.0;
     float b = ((float)((hex & 0xff) >> 0))/255.0;
     return [UIColor colorWithRed:r green:g blue:b alpha:alpha];
 }
-+ (UIColor *)random
++ (UIColor *)h_random
 {
     return [UIColor colorWithRed:(arc4random()%256)*1.0/256 green:(arc4random()%256)*1.0/256 blue:(arc4random()%256)*1.0/256 alpha:1];
 }
