@@ -41,6 +41,7 @@ NSString * methodName = [NSString stringWithFormat:@"%s", __func__]; \
 if (![arg isKindOfClass:[_class class]])\
 {arg = nil;}
 
+
 @interface NSObject (ext)
 
 // deserializtion
@@ -50,7 +51,6 @@ if (![arg isKindOfClass:[_class class]])\
 // serialization
 // the return is always dictionary
 - (id)serialization;
-+ (BOOL)isSerializationObject:(id)object;
 
 // property list
 - (NSArray *)ppList;

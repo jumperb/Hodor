@@ -74,7 +74,9 @@
 {
     return 0;
 }
-
+- (id)serialization {
+    return self;
+}
 - (NSString *)jsonString
 {
     return @"null";

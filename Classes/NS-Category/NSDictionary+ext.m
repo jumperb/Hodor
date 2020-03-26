@@ -23,14 +23,7 @@
         id value = [self objectForKey:key];
         if (value && value != [NSNull null])
         {
-            if([NSObject isSerializationObject:value])
-            {
-                [dict setValue:value forKey:[key stringValue]];
-            }
-            else
-            {
-                [dict setValue:[value serialization] forKey:[key stringValue]];
-            }
+            [dict setValue:[value serialization] forKey:[key stringValue]];
         }
     }
     return dict;

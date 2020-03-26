@@ -27,14 +27,7 @@
     {
         if (value && value != [NSNull null])
         {
-            if([NSObject isSerializationObject:value])
-            {
-                [arr addObject:value];
-            }
-            else
-            {
-                [arr addObject:[value serialization]];
-            }
+            [arr addObject:[value serialization]];
         }
     }
     return arr;

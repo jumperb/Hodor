@@ -47,10 +47,8 @@
 
 @implementation NSObject (ext)
 
-
 - (id)serialization
 {
-    if([NSObject isSerializationObject:self]) return self;
     NSArray *properties = [NSObject depPPListOfClass:self.class];
     if (properties.count)
     {
@@ -60,36 +58,12 @@
             id value = [self valueForKey:key];
             if (value && value != [NSNull null])
             {
-                if([NSObject isSerializationObject:value])
-                {
-                    [dict setValue:value forKey:key];
-                }
-                else
-                {
-                    [dict setValue:[value serialization] forKey:key];
-                }
+                [dict setValue:[value serialization] forKey:key];
             }
         }
         return dict;
     }
     else return NSStringFromClass([self class]);
-}
-
-+ (BOOL)isSerializationObject:(id)object
-{
-    if([object isKindOfClass:[NSString class]])
-    {
-        return YES;
-    }
-    else if([object isKindOfClass:[NSNumber class]])
-    {
-        return YES;
-    }    
-    else if([object isKindOfClass:[NSNull class]])
-    {
-        return YES;
-    }
-    else return NO;
 }
 
 - (NSArray *)ppList

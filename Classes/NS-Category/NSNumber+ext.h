@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSObject+ext.h"
 
 @interface NSNumber (ext)
 
