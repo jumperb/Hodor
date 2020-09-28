@@ -33,7 +33,7 @@
  *  safe URL encode
  *  wapping CFURLCreateStringByAddingPercentEscapes
  *
- *  @return
+ *  @return encode string
  */
 - (NSString *)encode;
 
@@ -49,8 +49,8 @@
  *  wapping boundingRectWithSize，
  *  compute text size on IOS7 is complex
  *
- *  @param font
- *  @param size
+ *  @param font .
+ *  @param size .
  *
  *  @return size
  */

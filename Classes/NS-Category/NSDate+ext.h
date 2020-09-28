@@ -27,7 +27,7 @@
 /**
  *  time after n days
  *
- *  @param n
+ *  @param n number of days
  *  @param time start time
  *
  *  @return time after n days
@@ -37,7 +37,7 @@
 /**
  *  time after n monthes
  *
- *  @param n
+ *  @param n number of month
  *  @param time start time
  *
  *  @return time after n monthes

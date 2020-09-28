@@ -14,20 +14,20 @@
 /**
  *  set text and line space
  *
- *  @param text
- *  @param lineSpace
+ *  @param text .
+ *  @param lineSpace .
  */
 - (void)hSetText:(NSString *)text lineSpace:(CGFloat)lineSpace;
 
 /**
  *  compute height of a text with line height
  *
- *  @param text
- *  @param font
- *  @param lineSpace
- *  @param width
+ *  @param text .
+ *  @param font .
+ *  @param lineSpace .
+ *  @param width .
  *
- *  @return
+ *  @return .
  */
 + (CGFloat)hGetTextHeightWith:(NSString *)text font:(UIFont *)font lineSpace:(CGFloat)lineSpace width:(CGFloat)width;
 @end
