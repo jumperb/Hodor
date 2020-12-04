@@ -19,6 +19,7 @@
 }
 - (UIWindow *)getKeyWindow
 {
+    if (self.windows.count == 0) return nil;
     UIWindow *window = self.windows[0];
     return window;
 }
