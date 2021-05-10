@@ -11,7 +11,7 @@
 
 @interface NSString (ext)
 
-- (id)JSONValue;
+- (id)h_JSONValue;
 
 - (NSString *)stringValue;
 

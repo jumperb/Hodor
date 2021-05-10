@@ -11,7 +11,7 @@
 
 @implementation NSString (ext)
 
-- (id)JSONValue
+- (id)h_JSONValue
 {
     NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
     NSError *jsonAnalysisError = nil;
@@ -46,7 +46,7 @@
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
-- (NSString *)jsonString
+- (NSString *)h_jsonString
 {
     return self;
 }

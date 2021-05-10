@@ -54,7 +54,7 @@
             */
             
             [gObj dependenceInset]; //this function can replace the codes above
-            NSLog(@"%@", [gObj jsonString]);
+            NSLog(@"%@", [gObj h_jsonString]);
         }];
     }
     return self;

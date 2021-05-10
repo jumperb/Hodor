@@ -104,9 +104,9 @@
     return depPPlist;
 }
 
-- (NSString *)jsonString
+- (NSString *)h_jsonString
 {
-    return [[self serialization] jsonString];
+    return [[self serialization] h_jsonString];
 }
 
 - (instancetype)initWithSerializedData:(id)data

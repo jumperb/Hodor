@@ -62,7 +62,7 @@ if (![arg isKindOfClass:[_class class]])\
 + (NSArray *)depPPListOfClass:(Class)theClass;
 
 // get json string
-- (NSString *)jsonString;
+- (NSString *)h_jsonString;
 
 // swap two SEL and IMP
 //if origSel isn't defined, you need call respondToSelector to check if selector is exsit

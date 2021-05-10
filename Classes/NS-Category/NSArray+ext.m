@@ -32,7 +32,7 @@
     }
     return arr;
 }
-- (NSString *)jsonString
+- (NSString *)h_jsonString
 {
     if([NSJSONSerialization isValidJSONObject:self])
     {
@@ -54,7 +54,7 @@
     {
         NSArray *arr2 = [self serialization];
         if([NSJSONSerialization isValidJSONObject:arr2]) {
-            return [arr2 jsonString];
+            return [arr2 h_jsonString];
         }
         else {
             NSAssert(NO, @"json encode fail");

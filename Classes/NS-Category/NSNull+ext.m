@@ -77,7 +77,7 @@
 - (id)serialization {
     return self;
 }
-- (NSString *)jsonString
+- (NSString *)h_jsonString
 {
     return @"null";
 }

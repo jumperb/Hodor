@@ -12,7 +12,7 @@
 
 @implementation NSData (ext)
 
-- (id)JSONValue
+- (id)h_JSONValue
 {
     NSError *jsonAnalysisError = nil;
     id res = [NSJSONSerialization JSONObjectWithData:self

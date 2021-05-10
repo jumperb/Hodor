@@ -28,7 +28,7 @@
     }
     return dict;
 }
-- (NSString *)jsonString
+- (NSString *)h_jsonString
 {
     if([NSJSONSerialization isValidJSONObject:self])
     {
@@ -50,7 +50,7 @@
     {
         NSDictionary *dict2 = [self serialization];
         if([NSJSONSerialization isValidJSONObject:dict2]) {
-            return [dict2 jsonString];
+            return [dict2 h_jsonString];
         }
         else {
             NSAssert(NO, @"json encode fail");

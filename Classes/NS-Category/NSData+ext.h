@@ -10,7 +10,7 @@
 
 @interface NSData (ext)
 
-- (id)JSONValue;
+- (id)h_JSONValue;
 /**
  *  gen CRC32 string
  *  @return string

@@ -42,7 +42,7 @@
             c.pBool = YES;
             c.pStr = @"cc%c\",123)";
             c.pNumber = @(5);
-            NSLog(@"%@", [c jsonString]);
+            NSLog(@"%@", [c h_jsonString]);
         }];
         
         [self addMenu:@"json string test2" callback:^(id sender, id data) {
@@ -52,7 +52,7 @@
             c.pNumber = @(5);
             NSDictionary *dict = @{@(6): [AClass new]};
             c.dict = dict;
-            NSLog(@"%@", [c jsonString]);
+            NSLog(@"%@", [c h_jsonString]);
         }];
         
         [self addMenu:@"@weakify test" callback:^(id sender, id data) {

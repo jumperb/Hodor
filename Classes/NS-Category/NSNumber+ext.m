@@ -9,7 +9,7 @@
 #import "NSNumber+ext.h"
 
 @implementation NSNumber (ext)
-- (NSString *)jsonString
+- (NSString *)h_jsonString
 {
     return [self stringValue];
 }
