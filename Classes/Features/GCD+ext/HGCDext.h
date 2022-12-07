@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 //gen a gcd queue, there is an addtional queue tag
 dispatch_queue_t hCreateQueue(char *name, dispatch_queue_attr_t attr);
@@ -25,3 +28,7 @@ void asyncAtQueue(dispatch_queue_t queue, void (^action)(void));
 
 //wapping dispatch_after
 void dispatchAfter(float sec, void (^action)(void));
+
+#ifdef __cplusplus
+}
+#endif
