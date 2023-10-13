@@ -42,6 +42,11 @@ void asyncAtMain(void (^action)(void))
     dispatch_async(dispatch_get_main_queue(), action);
 }
 
+void asyncAtMainIfNeed(void (^action)(void)) {
+    if (!action) return;
+    if ([NSThread isMainThread]) action();
+    else dispatch_async(dispatch_get_main_queue(), action);
+}
 
 void asyncAtQueue(dispatch_queue_t queue, void (^action)(void))
 {

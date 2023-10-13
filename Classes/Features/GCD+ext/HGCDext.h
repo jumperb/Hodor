@@ -23,6 +23,9 @@ void syncAtMain(void (^action)(void));
 //shorter aync dispatch
 void asyncAtMain(void (^action)(void));
 
+//shorter aync dispatch, if invoke it in main queue, call the block directly
+void asyncAtMainIfNeed(void (^action)(void));
+
 //shorter aync dispatch
 void asyncAtQueue(dispatch_queue_t queue, void (^action)(void));
 
