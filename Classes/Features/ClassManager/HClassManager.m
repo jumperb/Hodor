@@ -49,13 +49,16 @@
 }
 + (void)registerClass:(Class)aclass forProtocal:(Protocol *)protocal
 {
-    NSString *key = [NSString stringWithFormat:@"%@RegKey", NSStringFromProtocol(protocal)];
+    NSString *key = [self protocalRegKey:protocal];
     [[self sharedKit] registerClass:aclass forkey:key];
 }
 + (void)registerClass:(Class)aclass forProtocal:(Protocol *)protocal creator:(NSString *)creator
 {
-    NSString *key = [NSString stringWithFormat:@"%@RegKey", NSStringFromProtocol(protocal)];
+    NSString *key = [self protocalRegKey:protocal];
     [[self sharedKit] registerClass:aclass forkey:key userInfo:@{HClassCreatorKey:creator}];
+}
++ (NSString *)protocalRegKey:(Protocol *)protocal {
+    return [NSString stringWithFormat:@"%@RegKey", NSStringFromProtocol(protocal)];
 }
 + (void)scanClassNameForKey:(NSString *)key fetchblock:(HClassNameFetchBlock)block
 {
@@ -106,7 +109,7 @@
 }
 + (id)getObjectOfProtocal:(Protocol *)protocal
 {
-    NSString *key = [NSString stringWithFormat:@"%@RegKey", NSStringFromProtocol(protocal)];
+    NSString *key = [self protocalRegKey:protocal];
     __block NSString *className = nil;
     __block NSString *creator = nil;
 
