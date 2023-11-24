@@ -77,6 +77,8 @@ typedef void (^HClassNameFetchBlock)(NSString *aclassName, id userInfo);
 + (NSString *)protocalRegKey:(Protocol *)protocal;
 + (void)scanClassForKey:(NSString *)key fetchblock:(HClassFetchBlock)block;
 + (void)scanClassNameForKey:(NSString *)key fetchblock:(HClassNameFetchBlock)block;
++ (void)scanClassContainKey:(NSString *)key fetchblock:(HClassFetchBlock)block;
++ (void)scanClassNameContainKey:(NSString *)key fetchblock:(HClassNameFetchBlock)block;
 //return the first one that found
 + (NSString *)getClassNameForKey:(NSString *)key;
 + (id)getObjectOfProtocal:(Protocol *)protocal;

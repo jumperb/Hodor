@@ -87,6 +87,32 @@
         block(NSClassFromString(aclassName), userInfo);
     }];
 }
++ (void)scanClassNameContainKey:(NSString *)key fetchblock:(HClassNameFetchBlock)block {
+    NSSet *targetClasses = [[self sharedKit] getClassesContainKey:key];
+    [targetClasses enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+        if ([obj isKindOfClass:[HClassContainner class]])
+        {
+            HClassContainner *contanner = (HClassContainner *)obj;
+            if (block)
+            {
+                block(contanner.containClassName,contanner.userInfo);
+            }
+        }
+        else if([obj isKindOfClass:[NSString class]])
+        {
+            if (block)
+            {
+                block(obj,nil);
+            }
+        }
+    }];
+}
++ (void)scanClassContainKey:(NSString *)key fetchblock:(HClassFetchBlock)block {
+    [self scanClassNameContainKey:key fetchblock:^(NSString *aclassName, id userInfo) {
+        block(NSClassFromString(aclassName), userInfo);
+    }];
+}
+
 + (NSString *)getClassNameForKey:(NSString *)key
 {
     __block NSString *className = nil;
@@ -193,6 +219,21 @@
 {
     if (key == nil) return nil;
     return [_classIndex objectForKey:key];
+}
+- (NSSet *)getClassesContainKey:(NSString *)key
+{
+    if (key == nil) return nil;
+    NSMutableSet *set = [NSMutableSet new];
+    NSArray *allkeys = _classIndex.allKeys;
+    for (NSString *k in allkeys) {
+        if ([k containsString:key]) {
+            NSSet *cs = [_classIndex objectForKey:k];
+            for (id c in cs) {
+                [set addObject:c];
+            }
+        }
+    }
+    return set;
 }
 
 - (void)removeClassForKey:(NSString *)key

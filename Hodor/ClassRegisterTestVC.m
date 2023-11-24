@@ -24,6 +24,12 @@
             }];
         }];
         
+        [self addMenu:@"search all subClass contain key" callback:^(id sender, id data) {
+            [HClassManager scanClassContainKey:@"ACla" fetchblock:^(__unsafe_unretained Class aclass, id userInfo) {
+                NSLog(@"get sub class: %@, userInfo:%@", NSStringFromClass(aclass), userInfo);
+            }];
+        }];
+        
         [self addMenu:@"search all protocal implement" callback:^(id sender, id data) {
             //get a key of a protocol, if your protocal has only one imp, you can directly use "getObjectOfProtocal" or "HProtocalInstance"
             NSString *key = HProtocalRegKey(XProtocol);
