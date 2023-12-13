@@ -55,17 +55,23 @@
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
         for (NSString *key in properties)
         {
+            if (![self shouldSerializationKey:key]) continue;
             id value = [self valueForKey:key];
             if (value && value != [NSNull null])
             {
-                [dict setValue:[value serialization] forKey:key];
+                [dict setValue:[value serialization] forKey:[self convertSerializationKey:key]];
             }
         }
         return dict;
     }
     else return NSStringFromClass([self class]);
 }
-
+- (BOOL)shouldSerializationKey:(NSString *)key {
+    return YES;
+}
+- (NSString *)convertSerializationKey:(NSString *)key {
+    return key;
+}
 - (NSArray *)ppList
 {
     return [NSObject ppListOfClass:self.class];
