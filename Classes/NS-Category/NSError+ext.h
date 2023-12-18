@@ -28,5 +28,5 @@ extern const int kNetWorkErrorCode;
 extern const int kLogicErrorCode;
 extern const int kNoDataErrorCode;
 extern const int kAsyncCanelErrorCode;
-#define herr(theCode, desc) [NSError errorWithDomain:[[NSString stringWithFormat:@"%s", __FILE__] lastPathComponent] code:theCode description:desc]
+#define herr(theCode, desc) [NSError errorWithDomain:[[NSString stringWithFormat:@"%s", __FILE__] lastPathComponent] code:theCode description:(desc)]
 
