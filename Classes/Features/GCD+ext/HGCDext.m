@@ -17,6 +17,7 @@ dispatch_queue_t hCreateQueue(char *name, dispatch_queue_attr_t attr)
 
 void syncAtQueue(dispatch_queue_t queue, void (^action)(void))
 {
+    if (!queue) return;
     if (!action) return;
     if (dispatch_get_specific((__bridge void *)queue)) action();
     else dispatch_sync(queue, action);
@@ -50,6 +51,7 @@ void asyncAtMainIfNeed(void (^action)(void)) {
 
 void asyncAtQueue(dispatch_queue_t queue, void (^action)(void))
 {
+    if (!queue) return;
     if (!action) return;
     dispatch_async(queue, action);
 }
