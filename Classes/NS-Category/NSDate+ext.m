@@ -19,24 +19,7 @@
 {
     if(dateStr)
     {
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        NSString *format = nil;
-        switch (style) {
-            case 1:
-                format = @"yyyy-MM-dd";
-                break;
-            case 3:
-                format = @"MM-dd";
-                break;
-            case 4:
-                format = @"yyyy-MM-dd HH:mm:ss SSS";
-                break;
-            default:
-                format = @"yyyy-MM-dd HH:mm:ss";
-                break;
-        }
-        [dateFormatter setDateFormat:format];
-        [dateFormatter setLocale:[NSLocale systemLocale]];
+        NSDateFormatter *dateFormatter = [self formatterWithStyle:style];
         NSDate *date = [dateFormatter dateFromString:dateStr];
         return date;
     }
@@ -49,30 +32,52 @@
 }
 - (NSString *)displayDescWithStyle:(int)style
 {
-    NSDateFormatter *formatter=[[NSDateFormatter alloc] init];
-    NSString *format = nil;
-    switch (style) {
-        case 1:
-            format = @"yyyy-MM-dd";
-            break;
-        case 2:
-            format = @"yyyy-MM-dd HH:mm:ss";
-            break;
-        case 3:
-            format = @"MM-dd";
-            break;
-        case 4:
-            format = @"yyyy-MM-dd HH:mm:ss+SSS";
-            break;
-        default:
-            format = @"yyyy-MM-dd HH:mm:ss";
-            break;
-    }
-    [formatter setDateFormat:format];
-    [formatter setLocale:[NSLocale systemLocale]];
+    NSDateFormatter *formatter = [NSDate formatterWithStyle:style];
     return [formatter stringFromDate:self];
 }
 
++ (NSDateFormatter *)formatterWithStyle:(int)style {
+    int styleMax = 5;
+    if (style > styleMax) style = styleMax;
+    static dispatch_once_t pred;
+    static NSMutableArray *cache = nil;
+    dispatch_once(&pred, ^{
+        cache = [NSMutableArray new];
+        for (int i = 0; i < styleMax; i ++) {
+            [cache addObject:[NSNull null]];
+        }
+    });
+    //search
+    id obj = cache[style - 1];
+    if ([obj isKindOfClass:[NSDateFormatter class]]) {
+        return obj;
+    }
+    else {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        NSString *format = nil;
+        switch (style) {
+            case 1:
+                format = @"yyyy-MM-dd";
+                break;
+            case 2:
+                format = @"yyyy-MM-dd HH:mm:ss";
+                break;
+            case 3:
+                format = @"MM-dd";
+                break;
+            case 4:
+                format = @"yyyy-MM-dd HH:mm:ss+SSS";
+                break;
+            default:
+                format = @"yyyy-MM-dd HH:mm:ss";
+                break;
+        }
+        [formatter setDateFormat:format];
+        [formatter setLocale:[NSLocale systemLocale]];
+        cache[style - 1] = formatter;
+        return formatter;
+    }
+}
 
 + (long)timeAfterNDays:(int)n orignal:(long)time
 {
