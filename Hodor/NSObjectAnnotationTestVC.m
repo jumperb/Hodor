@@ -74,12 +74,18 @@ ppx(func1, @[@"h",@"i"])
     
 }
 
+//ppx(func2_withb_, @{@"j":@"k"})
+
 fpx(func2_withb_, @{@"j":@"k"})
 - (void)func2:(int)a withb:(NSString *)b;
 {
     
 }
 
+ppx(str2, @(5))
+ppx(ID2, @(5))
+ppx(c2, @(5))
+//ppx(sttr, @(5)) // error
 fpx(func3, @(5))
 + (void)func3
 {
@@ -95,7 +101,6 @@ fpx(func3, @(5))
 
 @implementation AnnotationTestObj2
 ppx(str2, @"t");
-
 
 ppx(func5, @"s");
 - (void)func5

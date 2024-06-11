@@ -15,8 +15,11 @@
 
 @interface AnnotationTestObj : NSNumber
 @property (nonatomic) NSString *str;
+@property (nonatomic) NSString *str2;
 @property (nonatomic) id ID;
+@property (nonatomic) id ID2;
 @property (nonatomic) char c;
+@property (nonatomic) char c2;
 @property (nonatomic) int *p;
 @property (nonatomic) BOOL b;
 

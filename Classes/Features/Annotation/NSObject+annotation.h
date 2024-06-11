@@ -8,18 +8,30 @@
 
 #import <Foundation/Foundation.h>
 
-//#define ppx_valid(__KEY__)\
-//({\
-//if (NO) {\
-//[([self.class new]) __KEY__];\
-//}\
-//})
+#define pp_property(object, property) (^{ \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wunreachable-code\"") \
+_Pragma("clang diagnostic ignored \"-Wimplicit-retain-self\"") \
+return ((void)(NO && ((void)object.property, NO)), @#property); \
+_Pragma("clang diagnostic pop") \
+}())
+
+
+#define pp_class_property(class, property) (^{ \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wunreachable-code\"") \
+_Pragma("clang diagnostic ignored \"-Wimplicit-retain-self\"") \
+return ((void)(NO && ((void)[[class new] property], NO)), @#property); \
+_Pragma("clang diagnostic pop") \
+}())
+
 
 
 //propert annotion define
 #define ppx(n, ...) \
 + (NSArray *)annotion_support_##n\
 {\
+pp_class_property(self, n);\
 return @[__VA_ARGS__];\
 }
 
