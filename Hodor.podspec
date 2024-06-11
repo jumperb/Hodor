@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "Hodor"
-  s.version = "2.4.2"
+  s.version = "2.4.3"
   s.summary = "A short description of Hodor."
 
   s.description = <<-DESC
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
   
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '11.0'
 
   s.default_subspec = 'All'
 
