@@ -15,18 +15,18 @@
 
 + (UIWindow *)getKeyWindow
 {
+    return [[UIApplication sharedApplication] getKeyWindow];
+}
+- (UIWindow *)getKeyWindow
+{
     if (@available(iOS 18.0, *)) {
         return [[UIApplication sharedApplication] keyWindow];
     }
     else {
-        return [[UIApplication sharedApplication] getKeyWindow];
+        if (self.windows.count == 0) return nil;
+        UIWindow *window = self.windows[0];
+        return window;
     }
-}
-- (UIWindow *)getKeyWindow
-{
-    if (self.windows.count == 0) return nil;
-    UIWindow *window = self.windows[0];
-    return window;
 }
 + (UIViewController *)getKeyWindowRootController
 {
