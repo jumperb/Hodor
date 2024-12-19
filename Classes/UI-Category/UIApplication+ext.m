@@ -15,7 +15,12 @@
 
 + (UIWindow *)getKeyWindow
 {
-    return [[UIApplication sharedApplication] getKeyWindow];
+    if (@available(iOS 18.0, *)) {
+        return [[UIApplication sharedApplication] keyWindow];
+    }
+    else {
+        return [[UIApplication sharedApplication] getKeyWindow];
+    }
 }
 - (UIWindow *)getKeyWindow
 {
